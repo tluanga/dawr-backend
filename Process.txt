@@ -1,0 +1,51 @@
+#Before opening the pos part - a register have to be opened
+
+20th December 2019
+- Buy of product will automatically increate the product stock
+- Sell of product will decrease the stock
+  - if there are no stock- the system will throw an error of Zero stock
+  - if the sell quantity is less than the current stock- system will throw error of Invalid stock
+- product rate completed    -Rate can be fix at the time of purchase or after
+22 December 2019
+-Calculate Profit- profit Calculation for row level is embed in Sell Model
+
+23-December 2019
+-Current Month sales report completed
+-Year Wise Report completed
+-queryset manager and custom manager completed
+24-December-2019
+pending-current-productSell-generate report which shows and product which are available for sell
+    -model involves- productStock, productModel
+    - process- 1) select distinct products with latest record and stock more than zero
+                2) using the queryreturned from the productStock models,
+                   select the product record from product Model.
+25-December-2019
+-per piece and per box rate- NOT completed
+    - if per piece is selected - per box rate will be null and will not use for calculation vice versa
+26-December-2019
+-product Stock- new field - bulk-boolean-Completed
+                       -current-boolean- when a new product is added the current field of the the prevous will be select
+                       -set to false
+29-December-201
+
+-------------------------------------------------------------------------------
+NEEDS TO BE implement
+------------------------------------------------------------------------------
+-----------INVENTORY----------
+-Month wise report
+-product Wise sales report
+-JWT Authentication
+-PDF Generation 
+-Barcode Scanning 
+-products on Sale or In-Active
+-image upload
+-----------POS------------------
+-Cash Register
+-shows product which are only available for sale-i.e. stock in hand
+-sell in credit and cash
+-credit account
+-----------ACCOUNT-------------
+-Profit Calculation for month and year and overall have to be written through queryset
+-drawing by cash
+-dawring by product
+-GST Implementation
