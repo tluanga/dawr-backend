@@ -16,8 +16,10 @@ class CategoryFilter(django_filters.FilterSet):
     class Meta:
         model = Category
         fields = {
+            'id':['iexact'],
             'name': ['icontains'],
-            'abbreviation':['icontains']
+            'abbreviation':['icontains'],
+
         }
 
 # class ProductFilter(django_filters.FilterSet):
