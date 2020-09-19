@@ -4,6 +4,7 @@ class CustomerType(models.Model):
     name = models.CharField(max_length=250)
     discount_percentage=models.IntegerField()
     remarks=models.TextField()
+    active=models.BooleanField(default=True)
 
     def __str__(self):
         return self.name

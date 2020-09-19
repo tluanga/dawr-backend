@@ -8,6 +8,7 @@ class ProductFilter(django_filters.FilterSet):
     class Meta:
         model = Product
         fields = {
+            'id':['iexact'],
             'name': ['icontains'],
             'model': ['icontains'],
             'tag': ['icontains']
