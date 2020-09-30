@@ -2,6 +2,7 @@ from django.db import models
 from django.core.exceptions import ValidationError
 from datetime import date
 from django.core.exceptions import ObjectDoesNotExist
+from .manager import ProductManager
 
 
 from pos.tax.models import GSTCode
@@ -26,6 +27,7 @@ class Category(models.Model):
         return self.name
 
 
+
 class Product(models.Model):
     active = models.BooleanField(default=True)
     name = models.CharField(max_length=250)
@@ -44,7 +46,9 @@ class Product(models.Model):
     unit_of_measurement = models.ForeignKey(
         UnitOfMeasurement, on_delete=models.DO_NOTHING, related_name='category')
     # picture
+    objects=ProductManager()
 
+    # select the product where active=true & quantity<0
     def __str__(self):
         return self.name
 # Call the real save() method

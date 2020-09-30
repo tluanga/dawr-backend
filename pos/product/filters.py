@@ -1,6 +1,6 @@
 
 import django_filters
-from .models import Product, Category
+from .models import Product, Category, ProductSalePrice
 
 
 class ProductFilter(django_filters.FilterSet):
@@ -11,7 +11,8 @@ class ProductFilter(django_filters.FilterSet):
             'id':['iexact'],
             'name': ['icontains'],
             'model': ['icontains'],
-            'tag': ['icontains']
+            'tag': ['icontains'],
+            'active':['iexact'],
         }
 class CategoryFilter(django_filters.FilterSet):
     class Meta:
@@ -22,10 +23,14 @@ class CategoryFilter(django_filters.FilterSet):
             'abbreviation':['icontains'],
 
         }
+class ProductSellRateFilter(django_filters.FilterSet):
+    # product=django_filters.NumberFilter(
+    #     lookup_expr='exact'
+    # )
+    class Meta:
+        model = ProductSalePrice
+        fields = {
+            'product':['exact'],
+            'current':['exact']          
 
-# class ProductFilter(django_filters.FilterSet):
-#     name = django_filters.CharFilter(lookup_expr='iexact')
-
-#     class Meta:
-#         model = Product
-#         fields = ['price', 'release_date']
+        }

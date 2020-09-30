@@ -6,7 +6,7 @@ from .serializers import (
     UnitOfMeasurementSerializer,
     ProductCostPriceSerializer,
     ProductSalePriceSerializer)
-from .filters import ProductFilter, CategoryFilter
+from .filters import ProductFilter, CategoryFilter,ProductSellRateFilter
 
 
 class ProductViewSet(viewsets.ModelViewSet):
@@ -35,6 +35,9 @@ class ProductCostPriceViewSet(viewsets.ModelViewSet):
 
 
 class ProductSalePriceViewSet(viewsets.ModelViewSet):
+    filterset_class = ProductSellRateFilter
 
     queryset = ProductSalePrice.objects.all()
     serializer_class = ProductSalePriceSerializer
+
+    

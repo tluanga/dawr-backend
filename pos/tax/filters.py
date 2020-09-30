@@ -6,7 +6,7 @@ class GSTCodeFilter(django_filters.FilterSet):
         model=GSTCode
         fields={
             'id':['iexact'],
-            'code':['icontains'],
+            'code':['iexact'],
             'description':['icontains'],
             'remarks':['icontains']
 

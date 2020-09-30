@@ -14,5 +14,5 @@ class CustomerTypeFilter(django_filters.FilterSet):
         model=CustomerType
         fields={
             'id':['iexact'],
-            'name':['icontains']
+            'name':['iexact']
         }
