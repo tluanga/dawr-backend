@@ -1,6 +1,6 @@
 
 import django_filters
-from .models import Product, Category, ProductSalePrice
+from .models import Product, Category, ProductSellPrice
 
 
 class ProductFilter(django_filters.FilterSet):
@@ -14,21 +14,13 @@ class ProductFilter(django_filters.FilterSet):
             'tag': ['icontains'],
             'active':['iexact'],
         }
-class CategoryFilter(django_filters.FilterSet):
-    class Meta:
-        model = Category
-        fields = {
-            'id':['iexact'],
-            'name': ['icontains'],
-            'abbreviation':['icontains'],
 
-        }
 class ProductSellRateFilter(django_filters.FilterSet):
     # product=django_filters.NumberFilter(
     #     lookup_expr='exact'
     # )
     class Meta:
-        model = ProductSalePrice
+        model = ProductSellPrice
         fields = {
             'product':['exact'],
             'current':['exact']          

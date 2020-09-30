@@ -1,6 +1,6 @@
 from django.db import models
 from django.core.exceptions import ValidationError
-from pos.product.models import Product, ProductCostPrice, ProductSalePrice
+from pos.product.models import Product, ProductCostPrice, ProductSellPrice
 from pos.warehouse.models import WareHouse
 from pos.supplier.models import Supplier
 from pos.tax.models import GSTCode
@@ -87,7 +87,7 @@ class ProductPurchase(models.Model):
         #productStock.UpdateStock(self.product,self.quantity)
         ProductStock.UpdateStock(self.product,self.bulk,self.quantity,mode='ADD')
         ProductCostPrice.CreateBuyRate(self.product,self.bulk,self.buy_rate)
-        ProductSalePrice.CreateSaleRate(self.product,self.bulk,self.buy_rate)    
+        ProductSellPrice.CreateSellRate(self.product,self.bulk,self.buy_rate)    
         
         super(ProductPurchase, self).save(*args, **kwargs) # Call the real save() method
     
@@ -153,7 +153,7 @@ class ProductPurchase(models.Model):
         
 #         productStock.UpdateStock(self.product,self.bulk,self.quantity,mode='REMOVE')
 #         self.CalculateProfit()
-#         print(productSell.objects.CurrentMonthlySales())
+#         print(productSell.objects.CurrentMonthlySells())
 #         super(productSell, self).save(*args, **kwargs) # Call the real save() method
 
 #     def __str__(self):

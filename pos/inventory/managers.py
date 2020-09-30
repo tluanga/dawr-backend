@@ -5,16 +5,16 @@ from datetime import date
 
 class ProductSellQuerySet(models.QuerySet):
     
-    def currentmonthlysales(self):
+    def currentmonthlysell(self):
         today=date.today()
-        #get sales for current month
+        #get sell for current month
         return self.filter(sell_time__month=today.month)
     
-    def currentyearsales(self):
+    def currentyearsell(self):
         today=date.today()
         return self.filter(sell_time__year=today.year)
     
-    def productcurrentmonthsales(self,id):
+    def productcurrentmonthsell(self,id):
         today=date.today()
         return self.filter(sell_time__year=today.month,product=id)
 
@@ -33,18 +33,18 @@ class ProductSellManager(models.Manager):
     def get_queryset(self):
         return ProductSellQuerySet(self.model, using=self._db)        
     #product sold in a month for all products
-    def CurrentMonthlySales(self):
-        return self.get_queryset().currentmonthlysales()
+    def CurrentMonthlySells(self):
+        return self.get_queryset().currentmonthlysell()
     
-    def CurrentYearSales(self):
-        return self.get_queryset().currentyearsales()
+    def CurrentYearSells(self):
+        return self.get_queryset().currentyearsell()
     
-    def ProductCurrentMonthSales(self,id):
-        return self.get_queryset().productcurrentmonthsales(id)
+    def ProductCurrentMonthSells(self,id):
+        return self.get_queryset().productcurrentmonthsell(id)
     
     
 
         
         #today=date.today()
-        #get sales for current month
+        #get sell for current month
         #return self.filter(sell_date__month=today.month)

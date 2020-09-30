@@ -1,4 +1,6 @@
 from django.db import models
+from pos.category.models import Category
+from pos.unit_of_measurement.models import UnitOfMeasurement
 from django.core.exceptions import ValidationError
 from datetime import date
 from django.core.exceptions import ObjectDoesNotExist
@@ -7,24 +9,6 @@ from .manager import ProductManager
 
 from pos.tax.models import GSTCode
 
-
-class UnitOfMeasurement(models.Model):
-    active = models.BooleanField(default=True)
-    name = models.CharField(max_length=255)
-    measurement_type = models.CharField(max_length=255)
-
-    def __str__(self):
-        return self.name
-
-
-class Category(models.Model):
-    name = models.CharField(max_length=250)
-    abbreviation=models.CharField(max_length=10)
-    active = models.BooleanField(default=True)
-    description=models.CharField(max_length=500,blank=True, null=True)
-
-    def __str__(self):
-        return self.name
 
 
 
@@ -102,9 +86,9 @@ class ProductCostPrice(models.Model):
         return str(product)
 
 
-class ProductSalePrice(models.Model):
+class ProductSellPrice(models.Model):
     product = models.ForeignKey(
-        Product, on_delete=models.DO_NOTHING, related_name='productsalerate')
+        Product, on_delete=models.DO_NOTHING, related_name='productsellrate')
     per_piece_sell_price = models.IntegerField(blank=True, null=True)
     per_bulk_sell_price = models.IntegerField(blank=True, null=True)
     time = models.DateTimeField(auto_now_add=True)
@@ -112,42 +96,43 @@ class ProductSalePrice(models.Model):
 
     @staticmethod
     def GetCurrentPerPieceSellRate(product):
-        current_per_piece_sell_Price = ProductSalePrice.objects.filter(
+        current_per_piece_sell_Price = ProductSellPrice.objects.filter(
             product=product.id).latest('time').per_piece_sell_rate
         return current_per_piece_sell_Price
 
     @staticmethod
     def GetCurrentPerBulkSellRate(product):
-        current_per_bulk_sell_price = ProductSalePrice.objects.filter(
+        current_per_bulk_sell_price = ProductSellPrice.objects.filter(
             product=product.id).latest('time').per_bulk_sell_rate
         return current_per_bulk_sell_price
 
     @staticmethod
-    def CreateSaleRate(product, bulk, per_piece_sell_price=0, per_bulk_sell_price=0):
+    def CreateSellRate(product, bulk, per_piece_sell_price=0, per_bulk_sell_price=0):
 
         try:
-            currentprice = ProductSalePrice.objects.filter(
+            currentprice = ProductSellPrice.objects.filter(
                 product=product.id).latest('time')
             currentprice.current = False
             currentprice.save()
-            productSalePrice = ProductSalePrice.objects.create(
+            productSellPrice = ProductSellPrice.objects.create(
                 product=product,
                 per_piece_sell_price=per_piece_sell_price,
                 per_bulk_sell_price=per_bulk_sell_price,
                 current=True
             )
-            return productSalePrice
-        except ProductSalePrice.DoesNotExist:
-            productSalePrice = ProductSalePrice.objects.create(
+            return productSellPrice
+        except ProductSellPrice.DoesNotExist:
+            productSellPrice = ProductSellPrice.objects.create(
                 product=product,
                 per_piece_sell_price=per_piece_sell_price,
                 per_bulk_sell_price=per_bulk_sell_price,
                 current=True
             )
-            return productSalePrice
+            return productSellPrice
 
     def __str__(self):
         return str(product)
+
 
 
 # class ProductRate(models.Model):

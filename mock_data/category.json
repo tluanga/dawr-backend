@@ -1,0 +1,117 @@
+[
+    {
+        "pk":1,
+        "model": "category.category",
+        "fields":{
+            "name":"Electric Wire",
+            "abbreviation":"ELW",
+            "description":"Electric Wire",
+            "active":true
+        }
+
+    },
+    {
+        "pk":2,
+        "model": "category.category",
+        "fields":{
+            "name":"Tools",
+            "abbreviation":"TOL",
+            "description":"Tools and Equipments for Electrification",
+            "active":true
+        }
+
+    },
+    {
+        "pk":3,
+        "model": "category.category",
+        "fields":{
+            "name":"Electric Appliances",
+            "abbreviation":"ELA",
+            "description":"Electric Appliances example Electric Iron etc.",
+            "active":true
+        }
+
+    },
+    {
+        "pk":4,
+        "model": "category.category",
+        "fields":{
+            "name":"Electric Wire",
+            "abbreviation":"ELW",
+            "description":"Electric Wire",
+            "active":true
+        }
+
+    },
+    {
+        "pk":1,
+        "model": "supplier.Supplier",
+        "fields":{
+            "name":"M/s Havells Electrical",
+            "address":"Samtlang, Champhai, Mizoram",
+            "pin_code":798981,
+            "mobile":700689800,
+            "email":"havels@gmail.com",
+            "gst_no":"AHEPH1898878",
+            "remarks":"Supplier of Electric Wire",
+            "active":true
+        }
+    },
+    {
+        "pk":2,
+        "model": "supplier.Supplier",
+        "fields":{
+            "name":"CLD Enterprise",
+            "address":"Ramhlun North, Aizawl",
+            "pin_code":79121981,
+            "mobile":9774058922,
+            "email":"cldenterprise.mz@gmail.com",
+            "gst_no":"AHEPH16786872378",
+            "remarks":"Supplier of Software and Tools",
+            "active":true
+        }
+    },  
+    {
+        "pk":3,
+        "model": "supplier.Supplier",
+        "fields":{
+            "name":"Light House Electricals",
+            "address":"Ramhlun North, Aizawl",
+            "pin_code":792128981,
+            "mobile":986258922,
+            "email":"lighthouse.mz@gmail.com",
+            "gst_no":"HEEPH16786872378",
+            "remarks":"Supplier of Electric Appliances",
+            "active":true
+        }
+    },
+    {
+        "pk":4,
+        "model": "supplier.supplier",
+        "fields":{
+            "name":"Bajaj Electricals",
+            "address":"Silchar, Assam",
+            "pin_code":7298981,
+            "mobile":8748374983,
+            "email":"bajaj@gmail.com",
+            "gst_no":"AHEPH13343678687",
+            "remarks":"Supplier of Electric Appliances",
+            "active":true
+        }
+    },
+    {
+        "pk":5,
+        "model": "supplier.supplier",
+        "fields":{
+            "name":"Anchor",
+            "address":"Bangalore, Karnataka",
+            "pin_code":731298981,
+            "mobile":787878780,
+            "email":"anchor@gmail.com",
+            "gst_no":"POPEPH16786872378",
+            "remarks":"Supplier of  Casing Capping",
+            "active":true
+        }
+    },
+    
+]

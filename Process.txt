@@ -10,7 +10,7 @@
 -Calculate Profit- profit Calculation for row level is embed in Sell Model
 
 23-December 2019
--Current Month sales report completed
+-Current Month sell report completed
 -Year Wise Report completed
 -queryset manager and custom manager completed
 24-December-2019
@@ -33,15 +33,15 @@ NEEDS TO BE implement
 ------------------------------------------------------------------------------
 -----------INVENTORY----------
 -Month wise report
--product Wise sales report
+-product Wise sell report
 -JWT Authentication
 -PDF Generation 
 -Barcode Scanning 
--products on Sale or In-Active
+-products on Sell or In-Active
 -image upload
 -----------POS------------------
 -Cash Register
--shows product which are only available for sale-i.e. stock in hand
+-shows product which are only available for sell-i.e. stock in hand
 -sell in credit and cash
 -credit account
 -----------ACCOUNT-------------

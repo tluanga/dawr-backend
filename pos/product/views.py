@@ -1,31 +1,17 @@
 from rest_framework import viewsets
-from .models import Product, Category, UnitOfMeasurement, ProductCostPrice, ProductSalePrice
+from .models import Product,UnitOfMeasurement, ProductCostPrice, ProductSellPrice
 from .serializers import (
     ProductSerializer,
-    CategorySerializer,
-    UnitOfMeasurementSerializer,
     ProductCostPriceSerializer,
-    ProductSalePriceSerializer)
-from .filters import ProductFilter, CategoryFilter,ProductSellRateFilter
-
+    ProductSellPriceSerializer)
+from .filters import ProductFilter
 
 class ProductViewSet(viewsets.ModelViewSet):
     filterset_class = ProductFilter
-
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
 
-class CategoryViewSet(viewsets.ModelViewSet):
-    filterset_class=CategoryFilter
-    queryset = Category.objects.all()
-    serializer_class = CategorySerializer
-
-
-class UnitOfMeasurementViewSet(viewsets.ModelViewSet):
-
-    queryset = UnitOfMeasurement.objects.all()
-    serializer_class = UnitOfMeasurementSerializer
 
 
 class ProductCostPriceViewSet(viewsets.ModelViewSet):
@@ -34,10 +20,10 @@ class ProductCostPriceViewSet(viewsets.ModelViewSet):
     serializer_class = ProductCostPriceSerializer
 
 
-class ProductSalePriceViewSet(viewsets.ModelViewSet):
-    filterset_class = ProductSellRateFilter
+class ProductSellPriceViewSet(viewsets.ModelViewSet):
+    
 
-    queryset = ProductSalePrice.objects.all()
-    serializer_class = ProductSalePriceSerializer
+    queryset = ProductSellPrice.objects.all()
+    serializer_class = ProductSellPriceSerializer
 
     

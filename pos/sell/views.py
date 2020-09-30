@@ -1,5 +1,7 @@
 from rest_framework import viewsets
 from .models import OrderItem, Order
+from pos.product.models import Product,ProductSellPrice
+from pos.tax.models import GSTCode
 from .serializers import OrderItemSerializer, OrderSerializer
 from .filters import OrderFilter
 
@@ -15,3 +17,8 @@ class OrderViewSet(viewsets.ModelViewSet):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
     filterset_class=OrderFilter
+
+# class ProductDetailViewSet(viewsets.ModelViewSet):
+#     product=Product.objects.get(productId)
+#     gst=GSTCode.object.get(product.gstcode)
+#     currentPrice=

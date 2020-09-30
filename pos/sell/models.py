@@ -82,7 +82,7 @@ class OrderItem(models.Model):
 
         # productStock.UpdateStock(self.product,self.bulk,self.quantity,mode='REMOVE')
         # self.CalculateProfit()
-        # print(productSell.objects.CurrentMonthlySales())
+        # print(productSell.objects.CurrentMonthlySells())
         # super(productSell, self).save(*args, **kwargs) # Call the real save() method
     def CalculateTax(self):
         product_gst_code = self.product.gstcode

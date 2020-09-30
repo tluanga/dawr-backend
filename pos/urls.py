@@ -21,19 +21,28 @@ from pos.customer.views import CustomerTypeViewSet, CustomerViewSet
 router.register('customertype',CustomerTypeViewSet)
 router.register('customer',CustomerViewSet)
 
+######################---Category---######
+from pos.category.views import CategoryViewSet
+router.register('category',CategoryViewSet)
+
+######################---Category---######
+from pos.category.views import CategoryViewSet
+router.register('category',CategoryViewSet)
+
+######################--Unit Of Measurement---######
+from pos.unit_of_measurement.views import UnitOfMeasurementViewSet
+router.register('unit_of_meaurement',UnitOfMeasurementViewSet)
 
 
 #######################3---product----###########
-from pos.product.views import (UnitOfMeasurementViewSet,
-                               CategoryViewSet,
+from pos.product.views import (
                                ProductViewSet,
                                ProductCostPriceViewSet,
-                               ProductSalePriceViewSet)
-router.register('unitofmeasurement',UnitOfMeasurementViewSet)
-router.register('category',CategoryViewSet)
+                               ProductSellPriceViewSet)
+
 router.register('product',ProductViewSet)
 router.register('productcostprice',ProductCostPriceViewSet)
-router.register('productsaleprice',ProductSalePriceViewSet)
+router.register('productsellprice',ProductSellPriceViewSet)
 
 ######################--Inventory---############333
 from pos.inventory.views import (ProductPurchaseViewSet,                                  
