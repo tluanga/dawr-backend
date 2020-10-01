@@ -1,0 +1,53 @@
+[
+    {
+        "pk":1,
+        "model": "customer.customertype",
+        "fields":{
+          "name":"Electrician A",
+          "discount_percentage":20,
+          "remarks":"Electrician tied up with",
+          "active":true
+        }
+    },
+    {
+        "pk":2,
+        "model": "customer.customertype",
+        "fields":{
+          "name":"Electrician B",
+          "discount_percentage":10,
+          "remarks":"Electrician with low purchase frequency",
+          "active":true
+        }
+    },
+    {
+        "pk":3,
+        "model": "customer.customertype",
+        "fields":{
+          "name":"Customer A",
+          "discount_percentage":10,
+          "remarks":"Customer with high purchase frequency",
+          "active":true
+        }
+    },
+    {
+        "pk":4,
+        "model": "customer.customertype",
+        "fields":{
+          "name":"Customer B",
+          "discount_percentage":5,
+          "remarks":"Customer with low purchase frequency",
+          "active":true
+        }
+    },
+    {
+        "pk":4,
+        "model": "customer.customertype",
+        "fields":{
+          "name":"Customer",
+          "discount_percentage":5,
+          "remarks":"New customer",
+          "active":true
+        }
+    }
+    
+]
