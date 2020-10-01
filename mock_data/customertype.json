@@ -40,7 +40,7 @@
         }
     },
     {
-        "pk":4,
+        "pk":5,
         "model": "customer.customertype",
         "fields":{
           "name":"Customer",

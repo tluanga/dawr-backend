@@ -8,7 +8,7 @@ class CustomerTypeSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class CustomerSerializer(serializers.ModelSerializer):
-    customer_type=serializers.StringRelatedField()
+    # customer_type=serializers.StringRelatedField()
 
     class Meta:
         model = Customer
@@ -21,4 +21,5 @@ class CustomerSerializer(serializers.ModelSerializer):
             'email',
             'gst_no',
             'customer_type',
+            'active',
         ]
