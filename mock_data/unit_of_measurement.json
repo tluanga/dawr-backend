@@ -48,7 +48,18 @@
             "active":true,
             "type_of_measurement":"Height/Length/Depth"
         }
+    },
+    {
+        "pk":5,
+        "model":"unit_of_measurement.UnitOfMeasurement",
+        "fields":{            
+            "unit_of_measurement":"yard",
+            "abbreviation":"km",
+            "active":true,
+            "type_of_measurement":"Height/Length/Depth"
+        }
     }
+
 
 
 ]
