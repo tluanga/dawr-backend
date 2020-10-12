@@ -19,7 +19,7 @@ class Product(models.Model):
         Category, on_delete=models.CASCADE, related_name='product')
     brand = models.CharField(max_length=250)
     model = models.CharField(max_length=250)
-    tag = models.CharField(max_length=250, null=True)
+    tag = models.CharField(max_length=250, null=True, blank=True)
     remarks = models.TextField(null=True)
     gstcode = models.ForeignKey(
         GSTCode, on_delete=models.CASCADE, related_name='product', null=True)
