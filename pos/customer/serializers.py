@@ -22,3 +22,4 @@ class CustomerSerializer(serializers.ModelSerializer):
             'gst_no',
             'customer_type',
         ]
+        
