@@ -40,4 +40,11 @@ class ProductSalePriceViewSet(viewsets.ModelViewSet):
     queryset = ProductSalePrice.objects.all()
     serializer_class = ProductSalePriceSerializer
 
-    
+from rest_framework import generics
+from django_filters import rest_framework as filters
+
+
+class ProductWithFilters(generics.ListAPIView):
+    queryset = Product.objects.all()
+    filter_backends = (filters.DjangoFilterBackend,)
+    filterset_fields = ('brand', 'model')

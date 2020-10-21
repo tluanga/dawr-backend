@@ -49,7 +49,9 @@ from pos.sell.views import (OrderItemViewSet, OrderViewSet)
 router.register('orderitem',OrderItemViewSet)
 router.register('order',OrderViewSet)
 
+from django.urls import path, include
 
-
-
-urlpatterns=router.urls
+urlpatterns = [
+    path('', include(router.urls)),
+    path('', include('pos.product.urls'))
+]

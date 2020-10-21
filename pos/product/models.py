@@ -47,7 +47,6 @@ class Product(models.Model):
         UnitOfMeasurement, on_delete=models.DO_NOTHING, related_name='category')
     # picture
     objects=ProductManager()
-
     # select the product where active=true & quantity<0
     def __str__(self):
         return self.name
