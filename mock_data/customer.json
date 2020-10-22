@@ -1,0 +1,70 @@
+[
+    {
+        "pk":2,
+        "model": "customer.customer",
+        "fields":{
+          "customer_type":5,
+          "name":"Customer",
+          "address":"Customer",
+          "city":"Customer",
+          "contact_no":12345,
+          "email":"",          
+          "active":true
+        }
+    },
+    {
+      "pk":3,
+      "model": "customer.customer",
+      "fields":{        
+        "name": "ThangaZama",
+        "address": "Lungpher",
+        "city": "AIZAWL",
+        "contact_no": 23423432432,
+        "email": "tluangahauhnar@gmail.com",
+        "gst_no": "232532231",
+        "customer_type": 1,
+        "active": false
+      }
+  },
+  {
+    "pk":4,
+    "model": "customer.customer",
+    "fields":{
+      "customer_type":2,
+      "name":"Rothanga",
+      "address":"Chanmari North",
+      "city":"Aizawl",
+      "contact_no":9354889839,
+      "email":"rothanga@gmail.com",          
+      "active":true
+    }
+  },
+  {
+    "pk":5,
+    "model": "customer.customer",
+    "fields":{
+      "customer_type":3,
+      "name":"Chawnga",
+      "address":"Zarkawt North",
+      "city":"Aizawl",
+      "contact_no":954454889839,
+      "email":"chawnga@gmail.com",          
+      "active":true
+    }
+  },
+  {
+    "pk":6,
+    "model": "customer.customer",
+    "fields":{
+      "customer_type":4,
+      "name":"Siama",
+      "address":"Zarkawt North",
+      "city":"Aizawl",
+      "contact_no":954454889839,
+      "email":"siama@gmail.com",          
+      "active":true
+    }
+  }
+    
+    
+]
