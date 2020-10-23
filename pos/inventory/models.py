@@ -96,8 +96,9 @@ class ProductPurchase(models.Model):
         return str(self.product)
 
 
-#class Transaction(models.Model):
-    
+c
+
+#class Transaction(models.Model): 
 
 # class ProductSell(models.Model):  
 #     sellItem=models.ForeignKey()  
