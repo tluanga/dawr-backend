@@ -96,7 +96,7 @@ class ProductPurchase(models.Model):
         return str(self.product)
 
 
-c
+
 
 #class Transaction(models.Model): 
 

@@ -3,6 +3,7 @@ from django.core.exceptions import ValidationError
 from pos.product.models import Product
 from pos.inventory.models import ProductStock
 from pos.product.models import GSTCode
+from pos.customer.models import Customer
 
 # Create your models here.
 
@@ -18,6 +19,7 @@ class Order(models.Model):
     cash_rounded_off = models.IntegerField(default=0)
     returned=models.IntegerField()    
     remarks = models.TextField(blank=True, null=True)
+    customer=models.ForeignKey(Customer, on_delete=models.Cascade, related_name='order')
     
     
     #objects=ProductSellManager()
