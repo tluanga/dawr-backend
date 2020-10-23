@@ -16,3 +16,4 @@ class CustomerTypeFilter(django_filters.FilterSet):
             'id':['iexact'],
             'name':['iexact']
         }
+    
