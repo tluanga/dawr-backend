@@ -16,6 +16,7 @@ class ModeOfSell(models.Model):
     
 
 class Order(models.Model):
+    # ref_code is the invoice number we need a pattern generator
     ref_code = models.CharField(max_length=255)
     order_date = models.DateTimeField(auto_now=True)
     total_discount = models.IntegerField(default=0)
@@ -40,8 +41,13 @@ class Order(models.Model):
     def get_cart_total(self):
         return sum([item.product.price for item in self.items.all()])
     
+    def ref_code_generator(self):
+        return ('A-3')
+
     def __str__(self):
         return str(self.ref_code)
+
+
     
     def CalculateProfit(self):
         if self.bulk==True:
@@ -105,6 +111,8 @@ class OrderItem(models.Model):
         return str(self.product)
 
 
+# ---use Signals to automatically create when the order is created
+# use post save signals
 class SettleBill(models.Model):
     order=models.OneToOneField(Order, on_delete=models.CASCADE,related_name='settle_bill')
     status=models.BooleanField(default=False)
