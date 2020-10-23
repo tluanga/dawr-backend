@@ -1,0 +1,17 @@
+[
+  {
+    "pk": 1,
+    "model": "product.Product",
+    "fields": {
+      "name": "M/s Havells Electrical",
+      "category": "Samtlang, Champhai, Mizoram",
+      "brand": 798981,
+      "model": 700689800,
+      "tag": "havels@gmail.com",
+      "gst_no": "1",
+      "remarks": "Supplier of Electric Wire",
+      "unit_of_measurement": "1",
+      "active": true
+    }
+  }
+]

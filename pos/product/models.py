@@ -39,10 +39,6 @@ class Product(models.Model):
     remarks = models.TextField(null=True)
     gstcode = models.ForeignKey(
         GSTCode, on_delete=models.CASCADE, related_name='product', null=True)
-    cost_price=models.DecimalField(decimal_places=2,blank=True, null=True, max_digits=6)
-    selling_price = models.DecimalField(
-        decimal_places=2, blank=True, null=True, max_digits=6)
-    mrp = models.IntegerField(blank=True, null=True)
     unit_of_measurement = models.ForeignKey(
         UnitOfMeasurement, on_delete=models.DO_NOTHING, related_name='category')
     # picture
@@ -147,6 +143,34 @@ class ProductSalePrice(models.Model):
 
     def __str__(self):
         return str(product)
+
+class MaximumRetailPrice(models.Model):
+    product = models.ForeignKey(
+        Product, on_delete=models.DO_NOTHING, related_name='mrp')
+    mrp = models.IntegerField(blank=True, null=True)
+    time = models.DateTimeField(auto_now_add=True)
+    current = models.BooleanField(default=True)
+
+    @staticmethod
+    def CreateMrp(product, bulk, mrp=0):
+        try:
+            currentprice = MaximumRetailPrice.objects.filter(
+                product=product.id).latest('time')
+            currentprice.current = False
+            currentprice.save()
+            mrp = MaximumRetailPrice.objects.create(
+                product=product,
+                mrp=mrp,
+                current=True
+            )
+            return mrp
+        except MaximumRetailPrice.DoesNotExist:
+            mrp = MaximumRetailPrice.objects.create(
+                product=product,
+                mrp=mrp,
+                current=True
+            )
+            return mrp
 
 
 # class ProductRate(models.Model):

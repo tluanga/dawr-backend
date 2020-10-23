@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import UnitOfMeasurement, Category, Product, ProductCostPrice, ProductSalePrice
+from .models import UnitOfMeasurement, Category, Product, ProductCostPrice, ProductSalePrice, MaximumRetailPrice
 
 
 class UnitOfMeasurementSerializer(serializers.ModelSerializer):
@@ -56,4 +56,10 @@ class ProductSalePriceSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = ProductSalePrice
+        fields = '__all__'
+
+class MaximumRetailPriceSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = MaximumRetailPrice
         fields = '__all__'

@@ -1,11 +1,12 @@
 from rest_framework import viewsets
-from .models import Product, Category, UnitOfMeasurement, ProductCostPrice, ProductSalePrice
+from .models import Product, Category, UnitOfMeasurement, ProductCostPrice, ProductSalePrice, MaximumRetailPrice
 from .serializers import (
     ProductSerializer,
     CategorySerializer,
     UnitOfMeasurementSerializer,
     ProductCostPriceSerializer,
-    ProductSalePriceSerializer)
+    ProductSalePriceSerializer,
+    MaximumRetailPriceSerializer)
 from .filters import ProductFilter, CategoryFilter,ProductSellRateFilter
 
 
@@ -48,3 +49,8 @@ class ProductWithFilters(generics.ListAPIView):
     queryset = Product.objects.all()
     filter_backends = (filters.DjangoFilterBackend,)
     filterset_fields = ('brand', 'model')
+
+class MaximumRetailPriceViewSet(viewsets.ModelViewSet):
+
+    queryset = MaximumRetailPrice.objects.all()
+    serializer_class = ProductCostPriceSerializer

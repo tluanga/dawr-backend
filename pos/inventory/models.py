@@ -96,8 +96,34 @@ class ProductPurchase(models.Model):
         return str(self.product)
 
 
-#class Transaction(models.Model):
-    
+class SellItem(models.Model):
+    id = models.IntegerField(primary_key=True)
+    product_name = models.CharField(max_length=255)
+    sell_rate = models.FloatField(null=True)
+    mrp = models.IntegerField()
+    cost_price = models.IntegerField()
+    gst_code = models.CharField(max_length=255)
+    gst_rate = models.FloatField()
+    amount = models.IntegerField()
+    date_and_time = models.DateTimeField(auto_now_add=True)
+    discount = models.IntegerField()
+    quantity = models.FloatField()
+
+    def __str__(self):
+        return self.product_name
+
+class Sell(models.Model):
+    id = models.IntegerField(primary_key=True)
+    invoice_no = models.CharField(max_length=255)
+    customer_name = models.CharField(max_length=255)
+    address = models.CharField(max_length=255)
+    sell_item = models.ManyToManyField(SellItem, related_name='sell', default=None, blank=True)
+    gst_no = models.CharField(max_length=255)
+    total_tax = models.FloatField()
+    total_discount = models.IntegerField()
+    total_amount = models.IntegerField()
+    date_and_time = models.DateTimeField(auto_now_add=True)
+ 
 
 # class ProductSell(models.Model):  
 #     sellItem=models.ForeignKey()  
