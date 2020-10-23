@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import OrderItem, Order
+from .models import OrderItem, Order, ModeOfSell,SettleBill
 
 class OrderItemSerializer(serializers.ModelSerializer):
 
@@ -8,7 +8,11 @@ class OrderItemSerializer(serializers.ModelSerializer):
         fields = [
             'product',
             'quantity',
-            'sell_rate'
+            'sell_rate',
+            'discount',
+            'tax_code',
+            'tax_rate',
+            'amount'
             ]
 
 
@@ -21,12 +25,15 @@ class OrderSerializer(serializers.ModelSerializer):
         model = Order
         fields = [
             'id',
+            'order_date',
             'ref_code',
             'orderItem',
             'cash_received',
-            'discount',
-            'cash_rounded_off',
-            'remarks'
+            'total_discount',
+            'total_tax',
+            'total_amount',
+            'mode',
+            'remarks',
         ]
     
     def create(self, validated_data):
@@ -38,3 +45,19 @@ class OrderSerializer(serializers.ModelSerializer):
                 **orderitem_data
                 )
         return order
+
+        
+
+class ModeOfSellSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = ModeOfSell
+        fields = '__all__'
+
+
+
+class SettleBillSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = SettleBill
+        fields = '__all__'

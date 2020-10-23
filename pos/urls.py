@@ -45,9 +45,12 @@ router.register('productpurchase',ProductPurchaseViewSet)
 router.register('productstock',ProductStockViewSet)
 
 ####################---Sell--------##############
-from pos.sell.views import (OrderItemViewSet, OrderViewSet)
+from pos.sell.views import (OrderItemViewSet, OrderViewSet, ModeOfSellViewSet,SettleBillViewSet)
 router.register('orderitem',OrderItemViewSet)
 router.register('order',OrderViewSet)
+router.register('modeofsell',ModeOfSellViewSet)
+router.register('settlebill',SettleBillViewSet)
+
 
 
 
