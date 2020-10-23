@@ -1,0 +1,34 @@
+[
+    {
+        "pk":1,
+        "model":"manufacturer.manufacturer",
+        "fields":{
+            "name":"Philips",
+            "description":"Manufacturer of Electrical Parts"
+        }
+    },
+    {
+        "pk":2,
+        "model":"manufacturer.manufacturer",
+        "fields":{
+            "name":"Havelss",
+            "description":"Manufacturer of Switch. Casing Pipe"
+        }
+    },
+    {
+        "pk":3,
+        "model":"manufacturer.manufacturer",
+        "fields":{
+            "name":"Bajaj",
+            "description":"Manufacturer of Electrical Parts, Accessories and Equipment"
+        }
+    },
+    {
+        "pk":3,
+        "model":"manufacturer.manufacturer",
+        "fields":{
+            "name":"Sony",
+            "description":"Manufacturer of Home Appliances"
+        }
+    }
+]

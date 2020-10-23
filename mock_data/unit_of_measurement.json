@@ -1,0 +1,65 @@
+[
+    {
+        "pk":1,
+        "model":"unit_of_measurement.UnitOfMeasurement",
+        "fields":{            
+            "unit_of_measurement":"Millimeter",
+            "abbreviation":"mm",
+            "active":true,
+            "type_of_measurement":"Height/Length/Depth"
+        }
+    },
+    {
+        "pk":2,
+        "model":"unit_of_measurement.UnitOfMeasurement",
+        "fields":{            
+            "unit_of_measurement":"Centimeter",
+            "abbreviation":"cm",
+            "active":true,
+            "type_of_measurement":"Height/Length/Depth"
+        }
+    },
+    {
+        "pk":3,
+        "model":"unit_of_measurement.UnitOfMeasurement",
+        "fields":{            
+            "unit_of_measurement":"Metre",
+            "abbreviation":"m",
+            "active":true,
+            "type_of_measurement":"Height/Length/Depth"
+        }
+    },
+    {
+        "pk":4,
+        "model":"unit_of_measurement.UnitOfMeasurement",
+        "fields":{            
+            "unit_of_measurement":"Kilometer",
+            "abbreviation":"km",
+            "active":true,
+            "type_of_measurement":"Height/Length/Depth"
+        }
+    },
+    {
+        "pk":5,
+        "model":"unit_of_measurement.UnitOfMeasurement",
+        "fields":{            
+            "unit_of_measurement":"yard",
+            "abbreviation":"km",
+            "active":true,
+            "type_of_measurement":"Height/Length/Depth"
+        }
+    },
+    {
+        "pk":5,
+        "model":"unit_of_measurement.UnitOfMeasurement",
+        "fields":{            
+            "unit_of_measurement":"yard",
+            "abbreviation":"km",
+            "active":true,
+            "type_of_measurement":"Height/Length/Depth"
+        }
+    }
+
+
+
+]
