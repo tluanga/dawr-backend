@@ -1,7 +1,7 @@
 [
     {
         "pk":1,
-        "model":"unit_of_measurement.UnitOfMeasurement",
+        "model":"product.UnitOfMeasurement",
         "fields":{            
             "unit_of_measurement":"Millimeter",
             "abbreviation":"mm",
@@ -11,7 +11,7 @@
     },
     {
         "pk":2,
-        "model":"unit_of_measurement.UnitOfMeasurement",
+        "model":"product.UnitOfMeasurement",
         "fields":{            
             "unit_of_measurement":"Centimeter",
             "abbreviation":"cm",
@@ -21,7 +21,7 @@
     },
     {
         "pk":3,
-        "model":"unit_of_measurement.UnitOfMeasurement",
+        "model":"product.UnitOfMeasurement",
         "fields":{            
             "unit_of_measurement":"Metre",
             "abbreviation":"m",
@@ -31,7 +31,7 @@
     },
     {
         "pk":4,
-        "model":"unit_of_measurement.UnitOfMeasurement",
+        "model":"product.UnitOfMeasurement",
         "fields":{            
             "unit_of_measurement":"Kilometer",
             "abbreviation":"km",
@@ -41,7 +41,7 @@
     },
     {
         "pk":5,
-        "model":"unit_of_measurement.UnitOfMeasurement",
+        "model":"product.UnitOfMeasurement",
         "fields":{            
             "unit_of_measurement":"yard",
             "abbreviation":"km",
@@ -51,7 +51,7 @@
     },
     {
         "pk":5,
-        "model":"unit_of_measurement.UnitOfMeasurement",
+        "model":"product.UnitOfMeasurement",
         "fields":{            
             "unit_of_measurement":"yard",
             "abbreviation":"km",

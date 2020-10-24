@@ -9,9 +9,10 @@ from pos.tax.models import GSTCode
 
 
 class UnitOfMeasurement(models.Model):
-    active = models.BooleanField(default=True)
-    name = models.CharField(max_length=255)
-    measurement_type = models.CharField(max_length=255)
+    
+    unit_of_measurement = models.CharField(max_length=255)
+    abbreviation=models.CharField(max_length=100)
+    type_of_measurement = models.CharField(max_length=255)
     active=models.BooleanField(default=True)
 
     def __str__(self):
