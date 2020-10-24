@@ -6,7 +6,7 @@
             "code":"841451",
             "sgst":6,
             "cgst":6,
-            "igst":12,
+            "totalGst":12,
             "description_of_good":"Table, floor, wall, window, ceiling or roof fans, with a self-contained electric motor of an output = 125 W",
             "remarks":"",
             "active":true
@@ -20,7 +20,7 @@
             "code":"820540",
             "sgst":9,
             "cgst":9,
-            "igst":18,
+            "totalGst":18,
             "description_of_good":"Hand Operated Screw Driver",
             "remarks":"",
             "active":true
@@ -34,7 +34,7 @@
             "code":"9405",
             "sgst":9,
             "cgst":9,
-            "igst":18,
+            "totalGst":18,
             "description_of_good":"Lamps and lighting fittings including searchlights and spotlights and parts thereof, not elsewhere specified or included; illuminated signs, illuminated name-plates and the like, having a permanently fixed light source, and parts thereof not elsewhere specified or included [other than kerosene pressure lantern and parts thereof including gas mantles; hurricane lanterns, kerosene lamp, petromax, glass chimney, and parts thereof; LED lights or fixtures including LED lamps; LED (light emitting diode) driver and MCPCB (Metal Core Printed Circuit Board)",
             "remarks":"",
             "active":true
@@ -48,7 +48,7 @@
             "code":"730431",
             "sgst":9,
             "cgst":9,
-            "igst":18,
+            "totalGst":18,
             "description_of_good":"Tubes, pipes and hollow profiles, seamless, of circular cross-section, of iron or non-alloy steel, cold-drawn or cold-rolled cold-reduced (excluding cast iron products and line pipe of a kind used for oil or gas pipelines or casing and tubing of a kind used for drilling for oil or gas)",
             "remarks":"",
             "active":true
@@ -62,7 +62,7 @@
             "code":"701110",
             "sgst":9,
             "cgst":9,
-            "igst":18,
+            "totalGst":18,
             "description_of_good":"Glass envelopes, incl. bulbs and tubes, open, and glass parts thereof, without fittings, for electric lighting",
             "remarks":"",
             "active":true
@@ -76,7 +76,7 @@
             "code":"845190",
             "sgst":9,
             "cgst":9,
-            "igst":18,
+            "totalGst":18,
             "description_of_good":"Parts of machines for washing, cleaning, wringing, drying, ironing, pressing, bleaching, dyeing, dressing, finishing, coating or impregnating textile yarns, fabrics or made-up textile articles; parts of machines used in the manufacture of linoleum or other floor coverings for applying the paste to the base fabric or other support; parts of machines for reeling, unreeling, folding, cutting or pinking textile fabrics, n.e.s.,",
             "remarks":"",
             "active":true
@@ -90,7 +90,7 @@
             "code":"845130",
             "sgst":9,
             "cgst":9,
-            "igst":18,
+            "totalGst":18,
             "description_of_good":"Ironing machines and presses, incl. fusing presses (excluding calenders)",
             "remarks":"",
             "active":true

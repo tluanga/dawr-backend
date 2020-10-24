@@ -6,7 +6,7 @@ class GSTCode(models.Model):
     cgst=models.FloatField()
     sgst = models.FloatField()
     totalGst=models.FloatField(blank=True, null=True)
-    description=models.CharField(max_length=500)
+    description_of_good=models.CharField(max_length=500)
     remarks = models.CharField(max_length=250,blank=True, null=True)
     active=models.BooleanField(default=True)
     
