@@ -16,6 +16,7 @@ djangorestframework-jwt = "*"
 coverage = "*"
 django-crispy-forms = "*"
 django-heroku = "*"
+pillow = "*"
 
 [requires]
 python_version = "3.8"

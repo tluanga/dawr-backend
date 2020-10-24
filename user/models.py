@@ -20,7 +20,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     objects = UserManager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['email','first_name']
+    # REQUIRED_FIELDS = ['email',]
 
     class Meta:
         verbose_name = _('user')
