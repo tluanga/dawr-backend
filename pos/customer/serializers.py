@@ -8,7 +8,6 @@ class CustomerTypeSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class CustomerSerializer(serializers.ModelSerializer):
-    customer_type=serializers.StringRelatedField()
 
     class Meta:
         model = Customer

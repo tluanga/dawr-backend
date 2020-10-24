@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     'pos.product',
     'pos.inventory',
     'pos.sell',
-    'pos.account'
+    'pos.account',
+    'user'
 ]
 
 MIDDLEWARE = [
@@ -186,3 +187,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Activate Django-Heroku.
 # django_heroku.settings(locals())
+
+AUTH_USER_MODEL = 'user.User'

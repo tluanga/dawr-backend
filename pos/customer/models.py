@@ -17,7 +17,8 @@ class Customer(models.Model):
     city=models.CharField(max_length=250,blank=True, null=True)
     contact_no=models.PositiveIntegerField()
     email=models.EmailField(blank=True, null=True)
-    gst_no=models.CharField(max_length=100, blank=True, null=True)
+    gst_no = models.CharField(max_length=100, blank=True, null=True)
+    active=models.BooleanField(default=True)
 
     def __str__(self):
         return self.name

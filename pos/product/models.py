@@ -56,6 +56,7 @@ class ProductCostPrice(models.Model):
     per_bulk_cost_price = models.IntegerField(blank=True, null=True)
     time = models.DateTimeField(auto_now_add=True)
     current = models.BooleanField(default=True)
+    active=models.BooleanField(default=True)
 
     @staticmethod
     def CreateBuyRate(product, bulk, per_piece_cost_price=0, per_bulk_cost_price=0):
@@ -104,6 +105,7 @@ class ProductSalePrice(models.Model):
     per_bulk_sell_price = models.IntegerField(blank=True, null=True)
     time = models.DateTimeField(auto_now_add=True)
     current = models.BooleanField(default=True)
+    active=models.BooleanField(default=True)
 
     @staticmethod
     def GetCurrentPerPieceSellRate(product):
@@ -150,6 +152,7 @@ class MaximumRetailPrice(models.Model):
     mrp = models.IntegerField(blank=True, null=True)
     time = models.DateTimeField(auto_now_add=True)
     current = models.BooleanField(default=True)
+    active=models.BooleanField(default=True)
 
     @staticmethod
     def CreateMrp(product, bulk, mrp=0):

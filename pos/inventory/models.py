@@ -25,7 +25,8 @@ class ProductStock(models.Model):
     stock_type=models.CharField(choices=product_STOCK_TYPE_CHOICES,max_length=100)
     bulkmode=models.BooleanField(default=False)
     time=models.DateTimeField(auto_now_add=True)
-    current=models.BooleanField(default=True)
+    current = models.BooleanField(default=True)
+    active=models.BooleanField(default=True)
     
     @staticmethod
     def CheckStock(product):
@@ -81,7 +82,8 @@ class ProductPurchase(models.Model):
     discount=models.IntegerField(default=0)
     quantity=models.IntegerField()
     time=models.DateTimeField(auto_now_add=True)
-    remarks=models.TextField(blank=True, null=True)
+    remarks = models.TextField(blank=True, null=True)
+    active=models.BooleanField(default=True)
  
     def save(self, *args, **kwargs):
         #productStock.UpdateStock(self.product,self.quantity)

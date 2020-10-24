@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import SettleBill,Order
 
-# Register your models here.
+admin.site.register(SettleBill)
+admin.site.register(Order)

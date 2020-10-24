@@ -25,7 +25,8 @@ class Order(models.Model):
     cash_received=models.IntegerField()    
     mode = models.ForeignKey(ModeOfSell,on_delete=models.DO_NOTHING,related_name='order')          
     remarks = models.TextField(blank=True, null=True)
-    customer=models.ForeignKey(Customer, on_delete=models.DO_NOTHING, related_name='order')
+    customer = models.ForeignKey(Customer, on_delete=models.DO_NOTHING, related_name='order')
+    active=models.BooleanField(default=True)
     
     
     #objects=ProductSellManager()
@@ -77,7 +78,10 @@ class OrderItem(models.Model):
     sell_rate = models.IntegerField()       
     tax_code=models.CharField(max_length=255,blank=True, null=True)
     tax_rate=models.FloatField(blank=True, null=True) 
-    amount=models.FloatField()
+    amount = models.FloatField()
+    active = models.BooleanField(default=True)
+    
+
     # def clean(self):
     #     if self.product.quantity==0:
     #         raise ValidationError('Zero Quantity')
@@ -119,4 +123,6 @@ class SettleBill(models.Model):
     date=models.DateTimeField(auto_now=True)
     payment_mode=models.CharField(max_length=255,blank=True, null=True)
     payment_amount=models.IntegerField(blank=True, null=True)
-    remarks=models.TextField()
+    remarks = models.TextField()
+    active = models.BooleanField(default=True)
+    
