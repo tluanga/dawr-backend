@@ -12,6 +12,7 @@ class UnitOfMeasurement(models.Model):
     active = models.BooleanField(default=True)
     name = models.CharField(max_length=255)
     measurement_type = models.CharField(max_length=255)
+    active=models.BooleanField(default=True)
 
     def __str__(self):
         return self.name
@@ -19,9 +20,9 @@ class UnitOfMeasurement(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=250)
-    abbreviation=models.CharField(max_length=10)
-    active = models.BooleanField(default=True)
+    abbreviation=models.CharField(max_length=10)    
     description=models.CharField(max_length=500,blank=True, null=True)
+    active = models.BooleanField(default=True)
 
     def __str__(self):
         return self.name
@@ -29,7 +30,6 @@ class Category(models.Model):
 
 
 class Product(models.Model):
-    active = models.BooleanField(default=True)
     name = models.CharField(max_length=250)
     category = models.ForeignKey(
         Category, on_delete=models.CASCADE, related_name='product')
@@ -41,6 +41,7 @@ class Product(models.Model):
         GSTCode, on_delete=models.CASCADE, related_name='product', null=True)
     unit_of_measurement = models.ForeignKey(
         UnitOfMeasurement, on_delete=models.DO_NOTHING, related_name='category')
+    active = models.BooleanField(default=True)
     # picture
     objects=ProductManager()
     # select the product where active=true & quantity<0
