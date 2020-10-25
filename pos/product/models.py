@@ -38,7 +38,7 @@ class Product(models.Model):
     model = models.CharField(max_length=250)
     tag = models.CharField(max_length=250, null=True)
     remarks = models.TextField(null=True)
-    gstcode = models.ForeignKey(
+    hsn_code = models.ForeignKey(
         GSTCode, on_delete=models.CASCADE, related_name='product', null=True)
     unit_of_measurement = models.ForeignKey(
         UnitOfMeasurement, on_delete=models.DO_NOTHING, related_name='category')
