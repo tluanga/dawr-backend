@@ -1,6 +1,6 @@
 from django.db import models
 from django.core.exceptions import ValidationError
-from pos.product.models import Product, ProductCostPrice, ProductSalePrice
+from pos.product.models import Product, ProductCostPrice, ProductSellPrice
 from pos.warehouse.models import WareHouse
 from pos.supplier.models import Supplier
 from pos.tax.models import GSTCode
@@ -24,6 +24,7 @@ class ProductStock(models.Model):
     quantity= models.IntegerField()
     stock_type=models.CharField(choices=product_STOCK_TYPE_CHOICES,max_length=100)
     bulkmode=models.BooleanField(default=False)
+    retailmode=models.BooleanField(default=False)
     time=models.DateTimeField(auto_now_add=True)
     current = models.BooleanField(default=True)
     active=models.BooleanField(default=True)
@@ -78,7 +79,7 @@ class ProductPurchase(models.Model):
     warehouse=models.ForeignKey(WareHouse,on_delete=models.CASCADE, related_name='productpurchase')
     supplier=models.ForeignKey(Supplier,on_delete=models.CASCADE, related_name='productpurchase')
     bulk=models.BooleanField(default=False)
-    buy_rate = models.IntegerField()    
+    buy_price = models.IntegerField()    
     discount=models.IntegerField(default=0)
     quantity=models.IntegerField()
     time=models.DateTimeField(auto_now_add=True)
@@ -88,8 +89,8 @@ class ProductPurchase(models.Model):
     def save(self, *args, **kwargs):
         #productStock.UpdateStock(self.product,self.quantity)
         ProductStock.UpdateStock(self.product,self.bulk,self.quantity,mode='ADD')
-        ProductCostPrice.CreateBuyRate(self.product,self.bulk,self.buy_rate)
-        ProductSalePrice.CreateSaleRate(self.product,self.bulk,self.buy_rate)    
+        ProductCostPrice.CreateBuyPrice(self.product,self.bulk,self.buy_price)
+        ProductSellPrice.CreateSellPrice(self.product,self.bulk,self.buy_price)    
         
         super(ProductPurchase, self).save(*args, **kwargs) # Call the real save() method
     
@@ -123,22 +124,22 @@ class ProductPurchase(models.Model):
 
 #     def CalculateProfit(self):
 #         if self.bulk==True:
-#             buy_rate=150
-#             buy_amount=self.quantity*buy_rate
-#             sell_rate=self.quantity*self.sell_rate
-#             self.profit=buy_rate-sell_rate
+#             buy_price=150
+#             buy_amount=self.quantity*buy_price
+#             sell_price=self.quantity*self.sell_price
+#             self.profit=buy_price-sell_price
 #         else:
-#             buy_rate=ProductRate.GetCurrentPerPieceBuyRate(self.product)
-#             buy_amount=self.quantity*buy_rate
-#             sell_rate=self.quantity*self.sell_rate
-#             self.profit=buy_rate-sell_rate
+#             buy_price=ProductPrice.GetCurrentPerPieceBuyPrice(self.product)
+#             buy_amount=self.quantity*buy_price
+#             sell_price=self.quantity*self.sell_price
+#             self.profit=buy_price-sell_price
         
     
 #     def CalculateTax(self):
 #         product_gst_code=self.product.gstcode
 #         code=self.product.gstcode
 #         Tax=GSTCode.objects.get(code=code)
-#         self.tax=Tax.CalculateTax(self.sell_rate)
+#         self.tax=Tax.CalculateTax(self.sell_price)
         
 #         print(self.tax)
         
@@ -156,7 +157,7 @@ class ProductPurchase(models.Model):
         
 #         productStock.UpdateStock(self.product,self.bulk,self.quantity,mode='REMOVE')
 #         self.CalculateProfit()
-#         print(productSell.objects.CurrentMonthlySales())
+#         print(productSell.objects.CurrentMonthlySell())
 #         super(productSell, self).save(*args, **kwargs) # Call the real save() method
 
 #     def __str__(self):

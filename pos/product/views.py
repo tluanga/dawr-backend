@@ -1,13 +1,13 @@
 from rest_framework import viewsets
-from .models import Product, Category, UnitOfMeasurement, ProductCostPrice, ProductSalePrice, MaximumRetailPrice
+from .models import Product, Category, UnitOfMeasurement, ProductCostPrice, ProductSellPrice, MaximumRetailPrice
 from .serializers import (
     ProductSerializer,
     CategorySerializer,
     UnitOfMeasurementSerializer,
     ProductCostPriceSerializer,
-    ProductSalePriceSerializer,
+    ProductSellPriceSerializer,
     MaximumRetailPriceSerializer)
-from .filters import ProductFilter, CategoryFilter,ProductSellRateFilter
+from .filters import ProductFilter, CategoryFilter,ProductSellPriceFilter
 
 
 class ProductViewSet(viewsets.ModelViewSet):
@@ -35,11 +35,11 @@ class ProductCostPriceViewSet(viewsets.ModelViewSet):
     serializer_class = ProductCostPriceSerializer
 
 
-class ProductSalePriceViewSet(viewsets.ModelViewSet):
-    filterset_class = ProductSellRateFilter
+class ProductSellPriceViewSet(viewsets.ModelViewSet):
+    filterset_class = ProductSellPriceFilter
 
-    queryset = ProductSalePrice.objects.all()
-    serializer_class = ProductSalePriceSerializer
+    queryset = ProductSellPrice.objects.all()
+    serializer_class = ProductSellPriceSerializer
 
 from rest_framework import generics
 from django_filters import rest_framework as filters

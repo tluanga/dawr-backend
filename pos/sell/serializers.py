@@ -8,10 +8,10 @@ class OrderItemSerializer(serializers.ModelSerializer):
         fields = [
             'product',
             'quantity',
-            'sell_rate',
+            'sell_price',
             'discount',
             'tax_code',
-            'tax_rate',
+            'tax_price',
             'amount'
             ]
 

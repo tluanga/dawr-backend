@@ -52,15 +52,15 @@ class Order(models.Model):
     
     def CalculateProfit(self):
         if self.bulk==True:
-            buy_rate=150
-            buy_amount=self.quantity*buy_rate
-            sell_rate=self.quantity*self.sell_rate
-            self.profit=buy_rate-sell_rate
+            buy_price=150
+            buy_amount=self.quantity*buy_price
+            sell_price=self.quantity*self.sell_price
+            self.profit=buy_price-sell_price
         else:
-            buy_rate=ProductRate.GetCurrentPerPieceBuyRate(self.product)
-            buy_amount=self.quantity*buy_rate
-            sell_rate=self.quantity*self.sell_rate
-            self.profit = buy_rate - sell_rate
+            buy_price=ProductPrice.GetCurrentPerPieceBuyPrice(self.product)
+            buy_amount=self.quantity*buy_price
+            sell_price=self.quantity*self.sell_price
+            self.profit = buy_price - sell_price
             
 
     def save(self, *args, **kwargs):
@@ -75,9 +75,9 @@ class OrderItem(models.Model):
         Product, on_delete=models.DO_NOTHING, related_name='orderItem')
     quantity = models.IntegerField()    
     discount=models.FloatField(blank=True, null=True)
-    sell_rate = models.IntegerField()       
+    sell_price = models.IntegerField()       
     tax_code=models.CharField(max_length=255,blank=True, null=True)
-    tax_rate=models.FloatField(blank=True, null=True) 
+    tax_price=models.FloatField(blank=True, null=True) 
     amount = models.FloatField()
     active = models.BooleanField(default=True)
     
@@ -101,13 +101,13 @@ class OrderItem(models.Model):
 
         # productStock.UpdateStock(self.product,self.bulk,self.quantity,mode='REMOVE')
         # self.CalculateProfit()
-        # print(productSell.objects.CurrentMonthlySales())
+        # print(productSell.objects.CurrentMonthlySell())
         # super(productSell, self).save(*args, **kwargs) # Call the real save() method
     def CalculateTax(self):
         product_gst_code = self.product.gstcode
         code = self.product.gstcode
         Tax = GSTCode.objects.get(code=code)
-        self.tax = Tax.CalculateTax(self.sell_rate)
+        self.tax = Tax.CalculateTax(self.sell_price)
 
         print(self.tax)
 

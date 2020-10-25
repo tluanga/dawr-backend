@@ -28,12 +28,12 @@ from pos.product.views import (UnitOfMeasurementViewSet,
                                CategoryViewSet,
                                ProductViewSet,
                                ProductCostPriceViewSet,
-                               ProductSalePriceViewSet)
+                               ProductSellPriceViewSet)
 router.register('unitofmeasurement',UnitOfMeasurementViewSet)
 router.register('category',CategoryViewSet)
 router.register('product',ProductViewSet)
 router.register('productcostprice',ProductCostPriceViewSet)
-router.register('productsaleprice',ProductSalePriceViewSet)
+router.register('productsellprice',ProductSellPriceViewSet)
 
 ######################--Inventory---############333
 from pos.inventory.views import (ProductPurchaseViewSet,                                  

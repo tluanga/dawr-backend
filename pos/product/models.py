@@ -61,7 +61,7 @@ class ProductCostPrice(models.Model):
     active=models.BooleanField(default=True)
 
     @staticmethod
-    def CreateBuyRate(product, bulk, per_piece_cost_price=0, per_bulk_cost_price=0):
+    def CreateBuyPrice(product, bulk, per_piece_cost_price=0, per_bulk_cost_price=0):
 
         try:
             currentprice = ProductCostPrice.objects.filter(
@@ -86,23 +86,23 @@ class ProductCostPrice(models.Model):
 
     @staticmethod
     def GetCurrentPerPieceCostPrice(product):
-        current_per_piece_buy_rate = ProductCostPrice.objects.filter(
-            product=product.id).latest('time').per_piece_buy_rate
-        return current_per_piece_buy_rate
+        current_per_piece_buy_price = ProductCostPrice.objects.filter(
+            product=product.id).latest('time').per_piece_buy_price
+        return current_per_piece_buy_price
 
     @staticmethod
     def GetCurrentPerBulkCostPric(product):
-        current_per_bulk_buy_rate = ProductCostPrice.objects.filter(
-            product=product.id).latest('time').per_bulk_buy_rate
-        return current_per_bulk_buy_rate
+        current_per_bulk_buy_price = ProductCostPrice.objects.filter(
+            product=product.id).latest('time').per_bulk_buy_price
+        return current_per_bulk_buy_price
 
     def __str__(self):
         return str(product)
 
 
-class ProductSalePrice(models.Model):
+class ProductSellPrice(models.Model):
     product = models.ForeignKey(
-        Product, on_delete=models.DO_NOTHING, related_name='productsalerate')
+        Product, on_delete=models.DO_NOTHING, related_name='productsaleprice')
     per_piece_sell_price = models.IntegerField(blank=True, null=True)
     per_bulk_sell_price = models.IntegerField(blank=True, null=True)
     time = models.DateTimeField(auto_now_add=True)
@@ -110,40 +110,40 @@ class ProductSalePrice(models.Model):
     active=models.BooleanField(default=True)
 
     @staticmethod
-    def GetCurrentPerPieceSellRate(product):
-        current_per_piece_sell_Price = ProductSalePrice.objects.filter(
-            product=product.id).latest('time').per_piece_sell_rate
+    def GetCurrentPerPieceSellPrice(product):
+        current_per_piece_sell_Price = ProductSellPrice.objects.filter(
+            product=product.id).latest('time').per_piece_sell_price
         return current_per_piece_sell_Price
 
     @staticmethod
-    def GetCurrentPerBulkSellRate(product):
-        current_per_bulk_sell_price = ProductSalePrice.objects.filter(
-            product=product.id).latest('time').per_bulk_sell_rate
+    def GetCurrentPerBulkSellPrice(product):
+        current_per_bulk_sell_price = ProductSellPrice.objects.filter(
+            product=product.id).latest('time').per_bulk_sell_price
         return current_per_bulk_sell_price
 
     @staticmethod
-    def CreateSaleRate(product, bulk, per_piece_sell_price=0, per_bulk_sell_price=0):
+    def CreateSellPrice(product, bulk, per_piece_sell_price=0, per_bulk_sell_price=0):
 
         try:
-            currentprice = ProductSalePrice.objects.filter(
+            currentprice = ProductSellPrice.objects.filter(
                 product=product.id).latest('time')
             currentprice.current = False
             currentprice.save()
-            productSalePrice = ProductSalePrice.objects.create(
+            productSellPrice = ProductSellPrice.objects.create(
                 product=product,
                 per_piece_sell_price=per_piece_sell_price,
                 per_bulk_sell_price=per_bulk_sell_price,
                 current=True
             )
-            return productSalePrice
-        except ProductSalePrice.DoesNotExist:
-            productSalePrice = ProductSalePrice.objects.create(
+            return productSellPrice
+        except productSellPrice.DoesNotExist:
+            productSellPrice = productSellPrice.objects.create(
                 product=product,
                 per_piece_sell_price=per_piece_sell_price,
                 per_bulk_sell_price=per_bulk_sell_price,
                 current=True
             )
-            return productSalePrice
+            return productSellPrice
 
     def __str__(self):
         return str(product)
@@ -178,49 +178,49 @@ class MaximumRetailPrice(models.Model):
             return mrp
 
 
-# class ProductRate(models.Model):
-#     product=models.ForeignKey(Product,on_delete=models.CASCADE,related_name='product_rate')
-#     per_piece_buy_rate=models.IntegerField(blank=True, null=True)
-#     per_bulk_buy_rate=models.IntegerField(blank=True, null=True)
-#     per_piece_sell_rate=models.IntegerField(blank=True, null=True)
-#     per_bulk_sell_rate=models.IntegerField(blank=True, null=True)
+# class ProductPrice(models.Model):
+#     product=models.ForeignKey(Product,on_delete=models.CASCADE,related_name='product_price')
+#     per_piece_buy_price=models.IntegerField(blank=True, null=True)
+#     per_bulk_buy_price=models.IntegerField(blank=True, null=True)
+#     per_piece_sell_price=models.IntegerField(blank=True, null=True)
+#     per_bulk_sell_price=models.IntegerField(blank=True, null=True)
 #     time=models.DateTimeField(auto_now_add=True)
 #     current=models.BooleanField(default=True)
 
 #     @staticmethod
-#     def CreateBuyRate(product,bulk,per_piece_buy_rate=0,per_bulk_buy_rate=0):
-#         #currentprice=productRate.objects.filter(product=product.id).latest('time')
+#     def CreateBuyPrice(product,bulk,per_piece_buy_price=0,per_bulk_buy_price=0):
+#         #currentprice=productPrice.objects.filter(product=product.id).latest('time')
 #         #currentprice.current=False
 #         #currentprice.save()
-#         ProductRate.objects.create(
+#         ProductPrice.objects.create(
 #             product=product,
-#             per_piece_buy_rate=per_piece_buy_rate,
-#             per_bulk_buy_rate=per_bulk_buy_rate
+#             per_piece_buy_price=per_piece_buy_price,
+#             per_bulk_buy_price=per_bulk_buy_price
 #         )
 #     @staticmethod
-#     def CreateSellRate(product,per_piece_sell_rate,per_bulk_rate):
-#         ProductRate.objects.create(
+#     def CreateSellPrice(product,per_piece_sell_price,per_bulk_price):
+#         ProductPrice.objects.create(
 #             product=product,
-#             per_piece_sell_rate=per_piece_sell_rate,
-#             per_bulk_rate=per_bulk_rate
+#             per_piece_sell_price=per_piece_sell_price,
+#             per_bulk_price=per_bulk_price
 #         )
 
 #     @staticmethod
-#     def GetCurrentPerPieceBuyRate(product):
-#         current_per_piece_buy_rate=ProductRate.objects.filter(product=product.id).latest('time').per_piece_buy_rate
-#         return current_per_piece_buy_rate
+#     def GetCurrentPerPieceBuyPrice(product):
+#         current_per_piece_buy_price=ProductPrice.objects.filter(product=product.id).latest('time').per_piece_buy_price
+#         return current_per_piece_buy_price
 
 #     @staticmethod
-#     def GetCurrentPerBulkBuyRate(product):
-#         current_per_bulk_buy_rate=ProductRate.objects.filter(product=product.id).latest('time').per_bulk_buy_rate
-#         return current_per_bulk_buy_rate
+#     def GetCurrentPerBulkBuyPrice(product):
+#         current_per_bulk_buy_price=ProductPrice.objects.filter(product=product.id).latest('time').per_bulk_buy_price
+#         return current_per_bulk_buy_price
 
 #     @staticmethod
-#     def GetCurrentPerPieceSellRate(product):
-#         current_per_piece_sell_rate=ProductRate.objects.filter(product=product.id).latest('time').per_piece_sell_rate
-#         return current_per_piece_sell_rate
+#     def GetCurrentPerPieceSellPrice(product):
+#         current_per_piece_sell_price=ProductPrice.objects.filter(product=product.id).latest('time').per_piece_sell_price
+#         return current_per_piece_sell_price
 
 #     @staticmethod
-#     def GetCurrentPerBulkSellRate(product):
-#         current_per_bulk_sell_rate=ProductRate.objects.filter(product=product.id).latest('time').per_bulk_sell_rate
-#         return current_per_bulk_sell_rate
+#     def GetCurrentPerBulkSellPrice(product):
+#         current_per_bulk_sell_price=ProductPrice.objects.filter(product=product.id).latest('time').per_bulk_sell_price
+#         return current_per_bulk_sell_price
