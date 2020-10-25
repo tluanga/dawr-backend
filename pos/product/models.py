@@ -16,7 +16,7 @@ class UnitOfMeasurement(models.Model):
     active=models.BooleanField(default=True)
 
     def __str__(self):
-        return self.name
+        return self.unit_of_measurement
 
 
 class Category(models.Model):

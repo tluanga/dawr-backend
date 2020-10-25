@@ -15,9 +15,9 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class ProductSerializer(serializers.ModelSerializer):
-    category = serializers.StringRelatedField()
-    gstcode = serializers.StringRelatedField()
-    unit_of_measurement=serializers.StringRelatedField()
+    # category = serializers.StringRelatedField()
+    # gstcode = serializers.StringRelatedField()
+    # unit_of_measurement=serializers.StringRelatedField()
     
     class Meta:
         model = Product
@@ -28,10 +28,7 @@ class ProductSerializer(serializers.ModelSerializer):
             'name',
             'brand',
             'model',
-            'gstcode',
-            'cost_price',
-            'selling_price',
-            'mrp',
+            'hsn_code',
             'unit_of_measurement',
             'tag',
             'remarks'
