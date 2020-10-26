@@ -1,12 +1,12 @@
 from rest_framework import viewsets
-from .serializers import ProductPurchaseSerializer, ProductStockSerializer
-from .models import ProductPurchase, ProductStock
+from .serializers import PurchaseOrderItemSerializer, ProductStockSerializer
+from .models import PurchaseOrderItem, ProductStock
 from .filters import ProductStockFilter
 
-class ProductPurchaseViewSet(viewsets.ModelViewSet):
+class PurchaseOrderItemViewSet(viewsets.ModelViewSet):
     
-    queryset = ProductPurchase.objects.all()
-    serializer_class = ProductPurchaseSerializer
+    queryset = PurchaseOrderItem.objects.all()
+    serializer_class = PurchaseOrderItemSerializer
     
     
     

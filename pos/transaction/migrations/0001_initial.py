@@ -29,7 +29,7 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
-            name='ProductPurchase',
+            name='PurchaseOrderItem',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('bulk', models.BooleanField(default=False)),

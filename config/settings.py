@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'pos.supplier',
     'pos.customer',
     'pos.product',
-    'pos.inventory',
+    'pos.transaction',
     'pos.sell',
     'pos.account',
     'pos.manufacturer',

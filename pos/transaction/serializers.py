@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import ProductStock, ProductPurchase
+from .models import ProductStock, PurchaseOrderItem
 # Sell, SellItem
 class ProductStockSerializer(serializers.ModelSerializer):
     
@@ -8,10 +8,10 @@ class ProductStockSerializer(serializers.ModelSerializer):
         fields = '__all__'
         
         
-class ProductPurchaseSerializer(serializers.ModelSerializer):
+class PurchaseOrderItemSerializer(serializers.ModelSerializer):
     
     class Meta:
-        model = ProductPurchase
+        model = PurchaseOrderItem
         fields = '__all__'
 
 '''

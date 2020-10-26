@@ -36,12 +36,12 @@ router.register('productcostprice',ProductCostPriceViewSet)
 router.register('productsellprice',ProductSellPriceViewSet)
 
 ######################--Inventory---############333
-from pos.inventory.views import (ProductPurchaseViewSet,                                  
+from pos.transaction.views import (PurchaseOrderItemViewSet,                                  
                                     ProductStockViewSet,                                   
                                  )
 
 
-router.register('productpurchase',ProductPurchaseViewSet)
+router.register('productpurchase',PurchaseOrderItemViewSet)
 router.register('productstock', ProductStockViewSet)
 
 

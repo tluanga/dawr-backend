@@ -1,5 +1,5 @@
 from django.db import models
-# from pos.inventory.models import ProductStock
+# from pos.transaction.models import ProductStock
 
 
 class ProductQuerySet(models.QuerySet):

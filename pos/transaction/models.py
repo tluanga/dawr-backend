@@ -6,7 +6,7 @@ from pos.supplier.models import Supplier
 from pos.tax.models import GSTCode
 #from pos.account.models import Invoice
 from .managers import ProductSellManager
-# from pos.inventory.filters import ProductStockFilter
+# from pos.transaction.filters import ProductStockFilter
 
 
 
@@ -72,18 +72,23 @@ class ProductStock(models.Model):
         return str(self.product)
 
 
-
-
-class ProductPurchase(models.Model):
-    product=models.ForeignKey(Product, on_delete=models.CASCADE, related_name='productpurchase')
+class PurchaseOrder(models.Model):
+    ref_no=models.CharField(max_length=255)
+    total_tax=models.FloatField(blank=True, null=True)
+    discount=models.FloatField(blank=True, null=True)
+    total_amount=models.FloatField()
+    time=models.DateTimeField(auto_now_add=True)
+    remarks = models.TextField(blank=True, null=True)
     warehouse=models.ForeignKey(WareHouse,on_delete=models.CASCADE, related_name='productpurchase')
     supplier=models.ForeignKey(Supplier,on_delete=models.CASCADE, related_name='productpurchase')
+
+class PurchaseOrderItem(models.Model):
+    product=models.ForeignKey(Product, on_delete=models.CASCADE, related_name='productpurchase')    
     bulk=models.BooleanField(default=False)
     buy_price = models.IntegerField()    
     discount=models.IntegerField(default=0)
     quantity=models.IntegerField()
-    time=models.DateTimeField(auto_now_add=True)
-    remarks = models.TextField(blank=True, null=True)
+    
     active=models.BooleanField(default=True)
  
     def save(self, *args, **kwargs):
@@ -92,7 +97,7 @@ class ProductPurchase(models.Model):
         ProductCostPrice.CreateBuyPrice(self.product,self.bulk,self.buy_price)
         ProductSellPrice.CreateSellPrice(self.product,self.bulk,self.buy_price)    
         
-        super(ProductPurchase, self).save(*args, **kwargs) # Call the real save() method
+        super(PurchaseOrderItem, self).save(*args, **kwargs) # Call the real save() method
     
 
     def __str__(self):
