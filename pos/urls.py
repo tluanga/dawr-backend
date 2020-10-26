@@ -47,14 +47,6 @@ router.register('purchaseorderitem',PurchaseOrderItemViewSet)
 
 
 
-####################---Sell--------##############
-from pos.sell.views import (OrderItemViewSet, OrderViewSet, ModeOfSellViewSet,SettleBillViewSet)
-router.register('orderitem',OrderItemViewSet)
-router.register('order',OrderViewSet)
-router.register('modeofsell',ModeOfSellViewSet)
-router.register('settlebill',SettleBillViewSet)
-
-
 from django.urls import path, include
 
 urlpatterns = [

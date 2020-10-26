@@ -20,15 +20,23 @@ class PurchaseOrderSerializer(serializers.ModelSerializer):
         fields = [
             'ref_no',
             'total_tax',
-            'discount',
+            'total_discount',
             'total_amount',
-            'time',
+            'date',
             'remarks',
             'warehouse',
             'supplier',
             'purchase_order_item'
         ]
-
+    def create(self, validated_data):
+        purchase_order_items_data = validated_data.pop('purchase_order_item')
+        purchase_order = PurchaseOrder.objects.create(**validated_data)
+        for purchase_order_item_data in purchase_order_items_data:
+            PurchaseOrder.objects.create(
+                purchase_order=purchase_order,
+                **purchase_order_item_data
+                )
+        return purchase_order
 
 
 '''
