@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import ProductStock, PurchaseOrderItem
+from .models import (ProductStock,PurchaseOrder,PurchaseOrderItem)
 # Sell, SellItem
 class ProductStockSerializer(serializers.ModelSerializer):
     
@@ -7,12 +7,29 @@ class ProductStockSerializer(serializers.ModelSerializer):
         model = ProductStock
         fields = '__all__'
         
-        
 class PurchaseOrderItemSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = PurchaseOrderItem
         fields = '__all__'
+
+class PurchaseOrderSerializer(serializers.ModelSerializer):
+    purchase_order_item=PurchaseOrderItemSerializer(many=True)
+    class Meta:
+        model = PurchaseOrder
+        fields = [
+            'ref_no',
+            'total_tax',
+            'discount',
+            'total_amount',
+            'time',
+            'remarks',
+            'warehouse',
+            'supplier',
+            'purchase_order_item'
+        ]
+
+
 
 '''
 class SellItemSerializer(serializers.ModelSerializer):

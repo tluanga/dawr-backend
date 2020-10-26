@@ -52,15 +52,15 @@ class Order(models.Model):
     
     def CalculateProfit(self):
         if self.bulk==True:
-            buy_price=150
-            buy_amount=self.quantity*buy_price
+            cost_price=150
+            cost_amount=self.quantity*cost_price
             sell_price=self.quantity*self.sell_price
-            self.profit=buy_price-sell_price
+            self.profit=cost_price-sell_price
         else:
-            buy_price=ProductPrice.GetCurrentPerPieceBuyPrice(self.product)
-            buy_amount=self.quantity*buy_price
+            cost_price=ProductPrice.GetCurrentPerPieceCostPrice(self.product)
+            cost_amount=self.quantity*cost_price
             sell_price=self.quantity*self.sell_price
-            self.profit = buy_price - sell_price
+            self.profit = cost_price - sell_price
             
 
     def save(self, *args, **kwargs):

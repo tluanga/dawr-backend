@@ -33,7 +33,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('bulk', models.BooleanField(default=False)),
-                ('buy_price', models.IntegerField()),
+                ('cost_price', models.IntegerField()),
                 ('discount', models.IntegerField(default=0)),
                 ('quantity', models.IntegerField()),
                 ('time', models.DateTimeField(auto_now_add=True)),

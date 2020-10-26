@@ -1,7 +1,7 @@
 #Before opening the pos part - a register have to be opened
 
 20th December 2019
-- Buy of product will automatically increate the product stock
+- Cost of product will automatically increate the product stock
 - Sell of product will decrease the stock
   - if there are no stock- the system will throw an error of Zero stock
   - if the sell quantity is less than the current stock- system will throw error of Invalid stock
