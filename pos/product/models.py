@@ -136,8 +136,8 @@ class ProductSellPrice(models.Model):
                 current=True
             )
             return productSellPrice
-        except productSellPrice.DoesNotExist:
-            productSellPrice = productSellPrice.objects.create(
+        except ProductSellPrice.DoesNotExist:
+            productSellPrice = ProductSellPrice.objects.create(
                 product=product,
                 per_piece_sell_price=per_piece_sell_price,
                 per_bulk_sell_price=per_bulk_sell_price,
