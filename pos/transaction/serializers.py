@@ -11,10 +11,20 @@ class PurchaseOrderItemSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = PurchaseOrderItem
-        fields = '__all__'
+        fields = [
+            'product',
+            'bulk',
+            'cost_price',
+            'cost_price_bulk',
+            'sell_price',
+            'sell_price_bulk',
+            'discount',            
+            'quantity',
+            'active'
+        ]
 
 class PurchaseOrderSerializer(serializers.ModelSerializer):
-    purchase_order_item=PurchaseOrderItemSerializer(many=True)
+    purchase_order_items=PurchaseOrderItemSerializer(many=True)
     class Meta:
         model = PurchaseOrder
         # fields='__all__'
@@ -27,20 +37,15 @@ class PurchaseOrderSerializer(serializers.ModelSerializer):
             'remarks',
             'warehouse',
             'supplier',
-            'purchase_order_item'
+            'purchase_order_items'
         ]
     def create(self, validated_data):
-        purchase_order_items_data = validated_data.pop('purchase_order_item')
-        print('purchase_order_items_data',purchase_order_items_data)
-        _purchase = PurchaseOrder.objects.create(**validated_data)
-        print('purchase variable/n',str(_purchase))
-        for purchase_order_item_data in purchase_order_items_data:
-            PurchaseOrderItem.objects.create(
-                purchase_order=_purchase,
-                **purchase_order_item_data
-                )
+        items_data = validated_data.pop('purchase_order_items')
+        purchase_order = PurchaseOrderItem.objects.create(**validated_data)
+        for item_data in items_data:
+            PurchaseOrderItem.objects.create(purchase_order=purchase_order, **item_data)
         return purchase_order
-
+    
 
 '''
 class SellItemSerializer(serializers.ModelSerializer):
