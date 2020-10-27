@@ -20,7 +20,7 @@ class PurchaseOrderItemSerializer(serializers.ModelSerializer):
             # 'sell_price_bulk',
             # 'discount',            
             # 'quantity',
-            # 'active'
+            'active'
         ]
 
 class PurchaseOrderSerializer(serializers.ModelSerializer):

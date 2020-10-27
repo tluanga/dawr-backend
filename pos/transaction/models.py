@@ -101,7 +101,7 @@ class PurchaseOrderItem(models.Model):
     # sell_price_bulk=models.FloatField(blank=True, null=True) 
     # discount=models.IntegerField(blank=True, null=True)
     # quantity=models.IntegerField()    
-    # active=models.BooleanField(default=True)
+    active=models.BooleanField(default=True)
  
     # def save(self, *args, **kwargs):
     #     if self.cost_price_bulk==None:
