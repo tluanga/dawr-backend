@@ -1,0 +1,441 @@
+[
+    {
+      "pk": 1,
+      "model": "product.category",
+      "fields": {
+        "name": "Electric Wire",
+        "abbreviation": "ELW",
+        "description": "Electric Wire",
+        "active": true
+      }
+    },
+    {
+      "pk": 2,
+      "model": "product.category",
+      "fields": {
+        "name": "Tools",
+        "abbreviation": "TOL",
+        "description": "Tools and Equipments for Electrification",
+        "active": true
+      }
+    },
+    {
+      "pk": 3,
+      "model": "product.category",
+      "fields": {
+        "name": "Electric Appliances",
+        "abbreviation": "ELA",
+        "description": "Electric Appliances example Electric Iron etc.",
+        "active": true
+      }
+    },
+    {
+      "pk": 4,
+      "model": "product.category",
+      "fields": {
+        "name": "Electric Wire",
+        "abbreviation": "ELW",
+        "description": "Electric Wire",
+        "active": true
+      }
+    },
+    {
+        "pk":1,
+        "model": "customer.customertype",
+        "fields":{
+          "name":"Electrician A",
+          "discount_percentage":20,
+          "remarks":"Electrician tied up with",
+          "active":true
+        }
+    },
+    {
+        "pk":2,
+        "model": "customer.customertype",
+        "fields":{
+          "name":"Electrician B",
+          "discount_percentage":10,
+          "remarks":"Electrician with low purchase frequency",
+          "active":true
+        }
+    },
+    {
+        "pk":3,
+        "model": "customer.customertype",
+        "fields":{
+          "name":"Customer A",
+          "discount_percentage":10,
+          "remarks":"Customer with high purchase frequency",
+          "active":true
+        }
+    },
+    {
+        "pk":4,
+        "model": "customer.customertype",
+        "fields":{
+          "name":"Customer B",
+          "discount_percentage":5,
+          "remarks":"Customer with low purchase frequency",
+          "active":true
+        }
+    },
+    {
+        "pk":5,
+        "model": "customer.customertype",
+        "fields":{
+          "name":"Customer",
+          "discount_percentage":5,
+          "remarks":"New customer",
+          "active":true
+        }
+    },
+    {
+        "pk":1,
+        "model":"tax.gstcode",
+        "fields":{
+            "code":"841451",
+            "sgst":6,
+            "cgst":6,
+            "totalGst":12,
+            "description_of_good":"Table, floor, wall, window, ceiling or roof fans, with a self-contained electric motor of an output = 125 W",
+            "remarks":"",
+            "active":true
+            
+        }
+    },
+    {
+        "pk":2,
+        "model":"tax.gstcode",
+        "fields":{
+            "code":"820540",
+            "sgst":9,
+            "cgst":9,
+            "totalGst":18,
+            "description_of_good":"Hand Opepriced Screw Driver",
+            "remarks":"",
+            "active":true
+            
+        }
+    },
+    {
+        "pk":3,
+        "model":"tax.gstcode",
+        "fields":{
+            "code":"9405",
+            "sgst":9,
+            "cgst":9,
+            "totalGst":18,
+            "description_of_good":"Lamps and lighting fittings including searchlights and spotlights and parts thereof, not elsewhere specified or included; illuminated signs, illuminated name-plates and the like, having a permanently fixed light source, and parts thereof not elsewhere specified or included [other than kerosene pressure lantern and parts thereof including gas mantles; hurricane lanterns, kerosene lamp, petromax, glass chimney, and parts thereof; LED lights or fixtures including LED lamps; LED (light emitting diode) driver and MCPCB (Metal Core Printed Circuit Board)",
+            "remarks":"",
+            "active":true
+            
+        }
+    },
+    {
+        "pk":4,
+        "model":"tax.gstcode",
+        "fields":{
+            "code":"730431",
+            "sgst":9,
+            "cgst":9,
+            "totalGst":18,
+            "description_of_good":"Tubes, pipes and hollow profiles, seamless, of circular cross-section, of iron or non-alloy steel, cold-drawn or cold-rolled cold-reduced (excluding cast iron products and line pipe of a kind used for oil or gas pipelines or casing and tubing of a kind used for drilling for oil or gas)",
+            "remarks":"",
+            "active":true
+            
+        }
+    },
+    {
+        "pk":5,
+        "model":"tax.gstcode",
+        "fields":{
+            "code":"701110",
+            "sgst":9,
+            "cgst":9,
+            "totalGst":18,
+            "description_of_good":"Glass envelopes, incl. bulbs and tubes, open, and glass parts thereof, without fittings, for electric lighting",
+            "remarks":"",
+            "active":true
+            
+        }
+    },    
+    {
+        "pk":6,
+        "model":"tax.gstcode",
+        "fields":{
+            "code":"845190",
+            "sgst":9,
+            "cgst":9,
+            "totalGst":18,
+            "description_of_good":"Parts of machines for washing, cleaning, wringing, drying, ironing, pressing, bleaching, dyeing, dressing, finishing, coating or impregnating textile yarns, fabrics or made-up textile articles; parts of machines used in the manufacture of linoleum or other floor coverings for applying the paste to the base fabric or other support; parts of machines for reeling, unreeling, folding, cutting or pinking textile fabrics, n.e.s.,",
+            "remarks":"",
+            "active":true
+            
+        }
+    },
+    {
+        "pk":8,
+        "model":"tax.gstcode",
+        "fields":{
+            "code":"845130",
+            "sgst":9,
+            "cgst":9,
+            "totalGst":18,
+            "description_of_good":"Ironing machines and presses, incl. fusing presses (excluding calenders)",
+            "remarks":"",
+            "active":true
+            
+        }
+    },
+    {
+        "pk":1,
+        "model":"manufacturer.Manufacturer",
+        "fields":{
+            "name":"Philips",
+            "description":"Manufacturer of Electrical Parts"
+        }
+    },
+    {
+        "pk":2,
+        "model":"manufacturer.Manufacturer",
+        "fields":{
+            "name":"Havelss",
+            "description":"Manufacturer of Switch. Casing Pipe"
+        }
+    },
+    {
+        "pk":3,
+        "model":"manufacturer.Manufacturer",
+        "fields":{
+            "name":"Bajaj",
+            "description":"Manufacturer of Electrical Parts, Accessories and Equipment"
+        }
+    },
+    {
+        "pk":3,
+        "model":"manufacturer.Manufacturer",
+        "fields":{
+            "name":"Sony",
+            "description":"Manufacturer of Home Appliances"
+        }
+    },
+    {
+        "pk":1,
+        "model": "supplier.Supplier",
+        "fields":{
+            "name":"M/s Havells Electrical",
+            "address":"Samtlang, Champhai, Mizoram",
+            "pincode":798981,
+            "mobile":700689800,
+            "email":"havels@gmail.com",
+            "gst_no":"AHEPH1898878",
+            "remarks":"Supplier of Electric Wire",
+            "active":true
+        }
+    },
+    {
+        "pk":2,
+        "model": "supplier.Supplier",
+        "fields":{
+            "name":"CLD Enterprise",
+            "address":"Ramhlun North, Aizawl",
+            "pincode":79121981,
+            "mobile":9774058922,
+            "email":"cldenterprise.mz@gmail.com",
+            "gst_no":"AHEPH16786872378",
+            "remarks":"Supplier of Software and Tools",
+            "active":true
+        }
+    },  
+    {
+        "pk":3,
+        "model": "supplier.Supplier",
+        "fields":{
+            "name":"Light House Electricals",
+            "address":"Ramhlun North, Aizawl",
+            "pincode":792128981,
+            "mobile":986258922,
+            "email":"lighthouse.mz@gmail.com",
+            "gst_no":"HEEPH16786872378",
+            "remarks":"Supplier of Electric Appliances",
+            "active":true
+        }
+    },
+    {
+        "pk":4,
+        "model": "supplier.supplier",
+        "fields":{
+            "name":"Bajaj Electricals",
+            "address":"Silchar, Assam",
+            "pincode":7298981,
+            "mobile":8748374983,
+            "email":"bajaj@gmail.com",
+            "gst_no":"AHEPH13343678687",
+            "remarks":"Supplier of Electric Appliances",
+            "active":true
+        }
+    },
+    {
+        "pk":5,
+        "model": "supplier.supplier",
+        "fields":{
+            "name":"Anchor",
+            "address":"Bangalore, Karnataka",
+            "pincode":731298981,
+            "mobile":787878780,
+            "email":"anchor@gmail.com",
+            "gst_no":"POPEPH16786872378",
+            "remarks":"Supplier of  Casing Capping",
+            "active":true
+        }
+    },
+    {
+        "pk":1,
+        "model":"product.UnitOfMeasurement",
+        "fields":{            
+            "unit_of_measurement":"Millimeter",
+            "abbreviation":"mm",
+            "active":true,
+            "type_of_measurement":"Height/Length/Depth"
+        }
+    },
+    {
+        "pk":2,
+        "model":"product.UnitOfMeasurement",
+        "fields":{            
+            "unit_of_measurement":"Centimeter",
+            "abbreviation":"cm",
+            "active":true,
+            "type_of_measurement":"Height/Length/Depth"
+        }
+    },
+    {
+        "pk":3,
+        "model":"product.UnitOfMeasurement",
+        "fields":{            
+            "unit_of_measurement":"Metre",
+            "abbreviation":"m",
+            "active":true,
+            "type_of_measurement":"Height/Length/Depth"
+        }
+    },
+    {
+        "pk":4,
+        "model":"product.UnitOfMeasurement",
+        "fields":{            
+            "unit_of_measurement":"Kilometer",
+            "abbreviation":"km",
+            "active":true,
+            "type_of_measurement":"Height/Length/Depth"
+        }
+    },
+    {
+        "pk":5,
+        "model":"product.UnitOfMeasurement",
+        "fields":{            
+            "unit_of_measurement":"yard",
+            "abbreviation":"km",
+            "active":true,
+            "type_of_measurement":"Height/Length/Depth"
+        }
+    },
+    {
+        "pk":5,
+        "model":"product.UnitOfMeasurement",
+        "fields":{            
+            "unit_of_measurement":"yard",
+            "abbreviation":"km",
+            "active":true,
+            "type_of_measurement":"Height/Length/Depth"
+        }
+    },
+    {
+        "pk":1,
+        "model":"warehouse.Warehouse",
+        "fields":{
+            "name":"Warehouse1",
+            "description":"storage of Electrical Parts"
+        }
+    },
+    {
+        "pk":2,
+        "model": "customer.customer",
+        "fields":{
+          "customer_type":5,
+          "name":"Customer",
+          "address":"Customer",
+          "city":"Customer",
+          "contact_no":12345,
+          "email":"",          
+          "active":true
+        }
+    },
+    {
+      "pk":3,
+      "model": "customer.customer",
+      "fields":{        
+        "name": "ThangaZama",
+        "address": "Lungpher",
+        "city": "AIZAWL",
+        "contact_no": 23423432432,
+        "email": "tluangahauhnar@gmail.com",
+        "gst_no": "232532231",
+        "customer_type": 1,
+        "active": false
+      }
+  },
+  {
+    "pk":4,
+    "model": "customer.customer",
+    "fields":{
+      "customer_type":2,
+      "name":"Rothanga",
+      "address":"Chanmari North",
+      "city":"Aizawl",
+      "contact_no":9354889839,
+      "email":"rothanga@gmail.com",          
+      "active":true
+    }
+  },
+  {
+    "pk":5,
+    "model": "customer.customer",
+    "fields":{
+      "customer_type":3,
+      "name":"Chawnga",
+      "address":"Zarkawt North",
+      "city":"Aizawl",
+      "contact_no":954454889839,
+      "email":"chawnga@gmail.com",          
+      "active":true
+    }
+  },
+  {
+    "pk":6,
+    "model": "customer.customer",
+    "fields":{
+      "customer_type":4,
+      "name":"Siama",
+      "address":"Zarkawt North",
+      "city":"Aizawl",
+      "contact_no":954454889839,
+      "email":"siama@gmail.com",          
+      "active":true
+    }
+  },
+  {
+    "pk": 1,
+    "model": "product.Product",
+    "fields": {
+      "name": "M/s Havells Electrical",
+      "category": 1,
+      "brand": 798981,
+      "model": 700689800,
+      "tag": "havels@gmail.com",
+      "hsn_code": "1",
+      "remarks": "Supplier of Electric Wire",
+      "unit_of_measurement": "1",
+      "active": true
+    }
+  }
+  ]
