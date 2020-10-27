@@ -103,16 +103,16 @@ class PurchaseOrderItem(models.Model):
     quantity=models.IntegerField()    
     active=models.BooleanField(default=True)
  
-    # def save(self, *args, **kwargs):
-    #     if self.cost_price_bulk==None:
-    #         self.cost_price_bulk=self.cost_price
-    #     if self.sell_price_bulk==None:
-    #         self.cost_price_bulk=self.cost_price
-    #     ProductStock.UpdateStock(self.product,self.bulk,self.quantity,mode='ADD')
-    #     ProductCostPrice.CreateCostPrice(self.product,self.bulk,self.cost_price)
-    #     ProductSellPrice.CreateSellPrice(self.product,self.bulk,self.cost_price)    
+    def save(self, *args, **kwargs):
+        if self.cost_price_bulk==None:
+            self.cost_price_bulk=self.cost_price
+        if self.sell_price_bulk==None:
+            self.cost_price_bulk=self.cost_price
+        ProductStock.UpdateStock(self.product,self.bulk,self.quantity,mode='ADD')
+        ProductCostPrice.CreateCostPrice(self.product,self.bulk,self.cost_price)
+        ProductSellPrice.CreateSellPrice(self.product,self.bulk,self.cost_price)    
         
-    #     super(PurchaseOrderItem, self).save(*args, **kwargs) # Call the real save() method
+        super(PurchaseOrderItem, self).save(*args, **kwargs) # Call the real save() method
     
 
     def __str__(self):
