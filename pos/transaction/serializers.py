@@ -16,7 +16,7 @@ class PurchaseOrderItemSerializer(serializers.ModelSerializer):
             'bulk',
             'cost_price',
             'cost_price_bulk',
-            # 'sell_price',
+            'sell_price',
             'sell_price_bulk',
             'discount',            
             'quantity',
