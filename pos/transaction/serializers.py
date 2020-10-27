@@ -13,7 +13,7 @@ class PurchaseOrderItemSerializer(serializers.ModelSerializer):
         model = PurchaseOrderItem
         fields = [
             'product',
-            # 'bulk',
+            'bulk',
             # 'cost_price',
             # 'cost_price_bulk',
             # 'sell_price',
