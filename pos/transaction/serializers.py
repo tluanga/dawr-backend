@@ -26,13 +26,12 @@ class PurchaseOrderItemSerializer(serializers.ModelSerializer):
 class PurchaseOrderSerializer(serializers.ModelSerializer):
     purchase_order_items=PurchaseOrderItemSerializer(many=True)
     class Meta:
-        model = PurchaseOrder
-        # fields='__all__'
+        model = PurchaseOrder    
         fields = [
             'ref_no',
-            # 'total_tax',
-            # 'total_discount',
-            # 'total_amount',
+            'total_tax',
+            'total_discount',
+            'total_amount',
             # 'date',
             # 'remarks',
             # 'warehouse',

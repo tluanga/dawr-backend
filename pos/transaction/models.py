@@ -83,9 +83,9 @@ class ModeOfSell(models.Model):
 
 class PurchaseOrder(models.Model):    
     ref_no=models.CharField(max_length=255)
-    # total_tax=models.FloatField(blank=True, null=True)
-    # total_discount=models.FloatField(blank=True, null=True)
-    # total_amount=models.FloatField()
+    total_tax=models.FloatField(blank=True, null=True)
+    total_discount=models.FloatField(blank=True, null=True)
+    total_amount=models.FloatField()
     # date=models.DateTimeField(auto_now_add=True)
     # remarks = models.TextField(blank=True, null=True)
     # warehouse=models.ForeignKey(WareHouse,on_delete=models.CASCADE, related_name='productpurchase')
