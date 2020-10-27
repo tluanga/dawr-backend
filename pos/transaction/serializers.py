@@ -12,6 +12,7 @@ class PurchaseOrderItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = PurchaseOrderItem
         fields = [
+            'purchase_order',
             'product',
             'bulk',
             'cost_price',
