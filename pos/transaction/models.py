@@ -95,7 +95,7 @@ class PurchaseOrderItem(models.Model):
     purchase_order=models.ForeignKey(PurchaseOrder,on_delete=models.CASCADE, related_name='purchase_order_item')
     product=models.ForeignKey(Product, on_delete=models.CASCADE, related_name='productpurchase')    
     bulk=models.BooleanField(default=False)
-    # cost_price = models.FloatField()
+    cost_price = models.FloatField()
     cost_price_bulk=models.FloatField(blank=True, null=True)
     # sell_price=models.FloatField()
     sell_price_bulk=models.FloatField(blank=True, null=True) 
