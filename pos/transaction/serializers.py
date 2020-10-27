@@ -32,10 +32,10 @@ class PurchaseOrderSerializer(serializers.ModelSerializer):
             'total_tax',
             'total_discount',
             'total_amount',
-            # 'date',
-            # 'remarks',
-            # 'warehouse',
-            # 'supplier',
+            'date',
+            'remarks',
+            'warehouse',
+            'supplier',
             'purchase_order_items'
         ]
     def create(self, validated_data):

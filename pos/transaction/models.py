@@ -86,10 +86,10 @@ class PurchaseOrder(models.Model):
     total_tax=models.FloatField(blank=True, null=True)
     total_discount=models.FloatField(blank=True, null=True)
     total_amount=models.FloatField()
-    # date=models.DateTimeField(auto_now_add=True)
-    # remarks = models.TextField(blank=True, null=True)
-    # warehouse=models.ForeignKey(WareHouse,on_delete=models.CASCADE, related_name='productpurchase')
-    # supplier=models.ForeignKey(Supplier,on_delete=models.CASCADE, related_name='productpurchase')
+    date=models.DateTimeField(auto_now_add=True)
+    remarks = models.TextField(blank=True, null=True)
+    warehouse=models.ForeignKey(WareHouse,on_delete=models.CASCADE, related_name='productpurchase')
+    supplier=models.ForeignKey(Supplier,on_delete=models.CASCADE, related_name='productpurchase')
 
 class PurchaseOrderItem(models.Model):
     purchase_order=models.ForeignKey(PurchaseOrder,on_delete=models.CASCADE, related_name='purchase_order_item')
