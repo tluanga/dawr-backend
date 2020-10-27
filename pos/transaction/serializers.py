@@ -13,14 +13,14 @@ class PurchaseOrderItemSerializer(serializers.ModelSerializer):
         model = PurchaseOrderItem
         fields = [
             'product',
-            'bulk',
-            'cost_price',
-            'cost_price_bulk',
-            'sell_price',
-            'sell_price_bulk',
-            'discount',            
-            'quantity',
-            'active'
+            # 'bulk',
+            # 'cost_price',
+            # 'cost_price_bulk',
+            # 'sell_price',
+            # 'sell_price_bulk',
+            # 'discount',            
+            # 'quantity',
+            # 'active'
         ]
 
 class PurchaseOrderSerializer(serializers.ModelSerializer):
@@ -30,13 +30,13 @@ class PurchaseOrderSerializer(serializers.ModelSerializer):
         # fields='__all__'
         fields = [
             'ref_no',
-            'total_tax',
-            'total_discount',
-            'total_amount',
-            'date',
-            'remarks',
-            'warehouse',
-            'supplier',
+            # 'total_tax',
+            # 'total_discount',
+            # 'total_amount',
+            # 'date',
+            # 'remarks',
+            # 'warehouse',
+            # 'supplier',
             'purchase_order_items'
         ]
     def create(self, validated_data):

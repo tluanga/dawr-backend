@@ -83,36 +83,36 @@ class ModeOfSell(models.Model):
 
 class PurchaseOrder(models.Model):    
     ref_no=models.CharField(max_length=255)
-    total_tax=models.FloatField(blank=True, null=True)
-    total_discount=models.FloatField(blank=True, null=True)
-    total_amount=models.FloatField()
-    date=models.DateTimeField(auto_now_add=True)
-    remarks = models.TextField(blank=True, null=True)
-    warehouse=models.ForeignKey(WareHouse,on_delete=models.CASCADE, related_name='productpurchase')
-    supplier=models.ForeignKey(Supplier,on_delete=models.CASCADE, related_name='productpurchase')
+    # total_tax=models.FloatField(blank=True, null=True)
+    # total_discount=models.FloatField(blank=True, null=True)
+    # total_amount=models.FloatField()
+    # date=models.DateTimeField(auto_now_add=True)
+    # remarks = models.TextField(blank=True, null=True)
+    # warehouse=models.ForeignKey(WareHouse,on_delete=models.CASCADE, related_name='productpurchase')
+    # supplier=models.ForeignKey(Supplier,on_delete=models.CASCADE, related_name='productpurchase')
 
 class PurchaseOrderItem(models.Model):
     purchase_order=models.ForeignKey(PurchaseOrder,on_delete=models.CASCADE, related_name='purchase_order_item')
     product=models.ForeignKey(Product, on_delete=models.CASCADE, related_name='productpurchase')    
-    bulk=models.BooleanField(default=False)
-    cost_price = models.FloatField()
-    cost_price_bulk=models.FloatField(blank=True, null=True)
-    sell_price=models.FloatField()
-    sell_price_bulk=models.FloatField(blank=True, null=True) 
-    discount=models.IntegerField(blank=True, null=True)
-    quantity=models.IntegerField()    
-    active=models.BooleanField(default=True)
+    # bulk=models.BooleanField(default=False)
+    # cost_price = models.FloatField()
+    # cost_price_bulk=models.FloatField(blank=True, null=True)
+    # sell_price=models.FloatField()
+    # sell_price_bulk=models.FloatField(blank=True, null=True) 
+    # discount=models.IntegerField(blank=True, null=True)
+    # quantity=models.IntegerField()    
+    # active=models.BooleanField(default=True)
  
-    def save(self, *args, **kwargs):
-        if self.cost_price_bulk==None:
-            self.cost_price_bulk=self.cost_price
-        if self.sell_price_bulk==None:
-            self.cost_price_bulk=self.cost_price
-        ProductStock.UpdateStock(self.product,self.bulk,self.quantity,mode='ADD')
-        ProductCostPrice.CreateCostPrice(self.product,self.bulk,self.cost_price)
-        ProductSellPrice.CreateSellPrice(self.product,self.bulk,self.cost_price)    
+    # def save(self, *args, **kwargs):
+    #     if self.cost_price_bulk==None:
+    #         self.cost_price_bulk=self.cost_price
+    #     if self.sell_price_bulk==None:
+    #         self.cost_price_bulk=self.cost_price
+    #     ProductStock.UpdateStock(self.product,self.bulk,self.quantity,mode='ADD')
+    #     ProductCostPrice.CreateCostPrice(self.product,self.bulk,self.cost_price)
+    #     ProductSellPrice.CreateSellPrice(self.product,self.bulk,self.cost_price)    
         
-        super(PurchaseOrderItem, self).save(*args, **kwargs) # Call the real save() method
+    #     super(PurchaseOrderItem, self).save(*args, **kwargs) # Call the real save() method
     
 
     def __str__(self):
