@@ -27,8 +27,8 @@ class PurchaseOrderSerializer(serializers.ModelSerializer):
     purchase_order_items=PurchaseOrderItemSerializer(many=True)
     class Meta:
         model = PurchaseOrder
-        # fields='__all__'
         fields = [
+            'id',
             'ref_no',
             'total_tax',
             'total_discount',
@@ -49,7 +49,7 @@ class PurchaseOrderSerializer(serializers.ModelSerializer):
 
 '''
 class SellItemSerializer(serializers.ModelSerializer):
-    class Meta:
+     class Meta:
         model = SellItem
         fields = '__all__'
     

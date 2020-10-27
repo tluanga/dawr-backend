@@ -1,0 +1,22 @@
+data:{
+                ref_no:"ABC",
+                total_tax: 0,
+                total_discount: 10,
+                total_amount: 9000,
+                remarks:'dfsgfs',
+                warehouse: 1,
+                supplier: 1,
+                purchase_order_items: [
+                    // {
+                    //     bulk: false,
+                    //     cost_price: 100,
+                    //     cost_price_bulk: null,
+                    //     sell_price: 200,
+                    //     sell_price_bulk: null,
+                    //     discount: 0,
+                    //     quantity: 100,
+                    //     active: true,
+                    //     product: 1
+                    // }
+                ]
+            }})
