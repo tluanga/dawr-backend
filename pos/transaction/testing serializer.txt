@@ -1,0 +1,30 @@
+from pos.transaction.serializers import PurchaseOrderSerializer
+
+data={'ref_no':"ABC",'total_tax': 0,'total_discount': 10,'total_amount': 9000,'remarks':'','warehouse': 1,'supplier': 1}
+
+
+data={'ref_no':"ABC",'total_tax': 0,'total_discount': 10,'total_amount': 9000,'remarks':'','warehouse': 1,'supplier': 1,'purchase_order_items': [
+    {  'product':1,'bulk':False,'cost_price':90,
+    'sell_price':120,'discount':0,'quantity':100}]}
+
+
+data={'ref_no':"ABC",'total_tax': 0,'total_discount': 10,'total_amount': 9000,'remarks':'','warehouse': 1,'supplier': 1,'purchase_order_items': [
+    {'product':1,'quantity':100}]}
+
+data={'ref_no':"ABC",'purchase_order_items': [
+    {'quantity':100}]}
+
+data={'ref_no':"ABC",'purchase_order_items': [
+    {'product':1}]}
+
+
+data={'ref_no':"ABC",'total_tax':0,'total_discount':10,'total_amount':9000,'remarks':'','warehouse':1,'supplier':1,'purchase_order_item':[
+{'product':1,'cost_price':90,'sell_price':120,'discount':0,'quantity':100}]}
+
+
+
+s=PurchaseOrderSerializer(data=data)
+
+s.is_valid()
+
+
